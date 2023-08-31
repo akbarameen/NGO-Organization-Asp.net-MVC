@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbNGOModelStoreContainer" CdmEntityContainer="dbNGOEntities6">
+    <EntitySetMapping Name="tbl_aboutus">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_aboutus">
+        <MappingFragment StoreEntitySet="tbl_aboutus">
+          <ScalarProperty Name="AboutID" ColumnName="AboutID" />
+          <ScalarProperty Name="WhatWeDo" ColumnName="WhatWeDo" />
+          <ScalarProperty Name="CareerWithUs" ColumnName="CareerWithUs" />
+          <ScalarProperty Name="ReadAboutUS" ColumnName="ReadAboutUS" />
+          <ScalarProperty Name="OurMission" ColumnName="OurMission" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Achivements">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Achivements">
+        <MappingFragment StoreEntitySet="tbl_Achivements">
+          <ScalarProperty Name="AchiveID" ColumnName="AchiveID" />
+          <ScalarProperty Name="AchiveTitle" ColumnName="AchiveTitle" />
+          <ScalarProperty Name="AchiveImage" ColumnName="AchiveImage" />
+          <ScalarProperty Name="AchiveDescription" ColumnName="AchiveDescription" />
+          <ScalarProperty Name="AchiveDateTime" ColumnName="AchiveDateTime" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AchiveStatus" ColumnName="AchiveStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Admins">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Admins">
+        <MappingFragment StoreEntitySet="tbl_Admins">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminFirstName" ColumnName="AdminFirstName" />
+          <ScalarProperty Name="AdminLastName" ColumnName="AdminLastName" />
+          <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+          <ScalarProperty Name="AdminEmail" ColumnName="AdminEmail" />
+          <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+          <ScalarProperty Name="AdminImage" ColumnName="AdminImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AskQuesions">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_AskQuesions">
+        <MappingFragment StoreEntitySet="tbl_AskQuesions">
+          <ScalarProperty Name="QuesionID" ColumnName="QuesionID" />
+          <ScalarProperty Name="QuestionTitle" ColumnName="QuestionTitle" />
+          <ScalarProperty Name="QuestionDateTime" ColumnName="QuestionDateTime" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_AssociativeNGO">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_AssociativeNGO">
+        <MappingFragment StoreEntitySet="tbl_AssociativeNGO">
+          <ScalarProperty Name="NgoID" ColumnName="NgoID" />
+          <ScalarProperty Name="NgoName" ColumnName="NgoName" />
+          <ScalarProperty Name="NgoEmail" ColumnName="NgoEmail" />
+          <ScalarProperty Name="NgoLogo" ColumnName="NgoLogo" />
+          <ScalarProperty Name="NgoPhone" ColumnName="NgoPhone" />
+          <ScalarProperty Name="NgoWebsite" ColumnName="NgoWebsite" />
+          <ScalarProperty Name="NgoDetails" ColumnName="NgoDetails" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="NGOStatus" ColumnName="NGOStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Blogs">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Blogs">
+        <MappingFragment StoreEntitySet="tbl_Blogs">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
+          <ScalarProperty Name="BlogDescription" ColumnName="BlogDescription" />
+          <ScalarProperty Name="BlogDateTime" ColumnName="BlogDateTime" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="BlogStatus" ColumnName="BlogStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_contactus">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_contactus">
+        <MappingFragment StoreEntitySet="tbl_contactus">
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactSubject" ColumnName="ContactSubject" />
+          <ScalarProperty Name="ContactMessage" ColumnName="ContactMessage" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DonationCauses">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_DonationCauses">
+        <MappingFragment StoreEntitySet="tbl_DonationCauses">
+          <ScalarProperty Name="CauseID" ColumnName="CauseID" />
+          <ScalarProperty Name="CauseName" ColumnName="CauseName" />
+          <ScalarProperty Name="CauseDiscription" ColumnName="CauseDiscription" />
+          <ScalarProperty Name="CauseImage" ColumnName="CauseImage" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Donations">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Donations">
+        <MappingFragment StoreEntitySet="tbl_Donations">
+          <ScalarProperty Name="DonationID" ColumnName="DonationID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DonationAmount" ColumnName="DonationAmount" />
+          <ScalarProperty Name="DonationDateTime" ColumnName="DonationDateTime" />
+          <ScalarProperty Name="CauseID" ColumnName="CauseID" />
+          <ScalarProperty Name="CardName" ColumnName="CardName" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CardOwner" ColumnName="CardOwner" />
+          <ScalarProperty Name="CExpirydate" ColumnName="CExpirydate" />
+          <ScalarProperty Name="CVCode" ColumnName="CVCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Events">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Events">
+        <MappingFragment StoreEntitySet="tbl_Events">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+          <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
+          <ScalarProperty Name="EventDateTime" ColumnName="EventDateTime" />
+          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+          <ScalarProperty Name="EventImage" ColumnName="EventImage" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="EventStatus" ColumnName="EventStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Gallaries">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Gallaries">
+        <MappingFragment StoreEntitySet="tbl_Gallaries">
+          <ScalarProperty Name="Gid" ColumnName="Gid" />
+          <ScalarProperty Name="GallaryTitle" ColumnName="GallaryTitle" />
+          <ScalarProperty Name="GallaryImage" ColumnName="GallaryImage" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="ImageStatus" ColumnName="ImageStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_invitation">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_invitation">
+        <MappingFragment StoreEntitySet="tbl_invitation">
+          <ScalarProperty Name="InviteID" ColumnName="InviteID" />
+          <ScalarProperty Name="InviteMessage" ColumnName="InviteMessage" />
+          <ScalarProperty Name="InviteToMail" ColumnName="InviteToMail" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Projects">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Projects">
+        <MappingFragment StoreEntitySet="tbl_Projects">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectTitle" ColumnName="ProjectTitle" />
+          <ScalarProperty Name="ProjectDescription" ColumnName="ProjectDescription" />
+          <ScalarProperty Name="ProjectImage" ColumnName="ProjectImage" />
+          <ScalarProperty Name="ProjectDateTime" ColumnName="ProjectDateTime" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="ProjectStatus" ColumnName="ProjectStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TeamMembers">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_TeamMembers">
+        <MappingFragment StoreEntitySet="tbl_TeamMembers">
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberImage" ColumnName="MemberImage" />
+          <ScalarProperty Name="MemberDescription" ColumnName="MemberDescription" />
+          <ScalarProperty Name="TitleID" ColumnName="TitleID" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_TeamMemberTitles">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_TeamMemberTitles">
+        <MappingFragment StoreEntitySet="tbl_TeamMemberTitles">
+          <ScalarProperty Name="TitleID" ColumnName="TitleID" />
+          <ScalarProperty Name="TitleName" ColumnName="TitleName" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Users">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Users">
+        <MappingFragment StoreEntitySet="tbl_Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
+          <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserConfirmPassword" ColumnName="UserConfirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Volunteers">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_Volunteers">
+        <MappingFragment StoreEntitySet="tbl_Volunteers">
+          <ScalarProperty Name="VolunteerID" ColumnName="VolunteerID" />
+          <ScalarProperty Name="VolunteerName" ColumnName="VolunteerName" />
+          <ScalarProperty Name="VolunteerReason" ColumnName="VolunteerReason" />
+          <ScalarProperty Name="VolunteerEmail" ColumnName="VolunteerEmail" />
+          <ScalarProperty Name="VolunteerTypeID" ColumnName="VolunteerTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_VolunteerTypes">
+      <EntityTypeMapping TypeName="dbNGOModel.tbl_VolunteerTypes">
+        <MappingFragment StoreEntitySet="tbl_VolunteerTypes">
+          <ScalarProperty Name="VolunteerTypeID" ColumnName="VolunteerTypeID" />
+          <ScalarProperty Name="VolunteerTypeName" ColumnName="VolunteerTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

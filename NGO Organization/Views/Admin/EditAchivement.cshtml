@@ -1,0 +1,91 @@
+﻿@model NGO_Organization.Models.tbl_Achivements
+
+@{
+    ViewBag.Title = "EditAchivement";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Edit Achivement Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Change you previous data if you want</h4>
+
+                    @using (Html.BeginForm("EditAchivement", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.AchiveID)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AchiveTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AchiveTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AchiveTitle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AchiveDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(model => model.AchiveDescription, new { cols = 35, @rows = 6, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AchiveDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AchiveDateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AchiveDateTime, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.AchiveDateTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdminID, "AdminID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AdminID, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.DropDownList("AdminID", null, htmlAttributes: new { @class = "form-control" })*@
+                            @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AchiveImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            <input type="file" name="AchivementImgFile" style="margin-top: 5px" value="" required />
+                            <div class="text-danger"> @ViewBag.SizeErrorMessage</div>
+                            <div class="text-danger"> @ViewBag.ExtensionErrorMessage</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.AchiveStatus, new { htmlAttributes = new { @class = "form-control", @Value = 1 } })
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2col-md-12">
+                            <input type="submit" value="Save Changes" class="btn btn-inverse-warning" />
+                        </div>
+                    </div>
+                </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to Achivements List", "Achivements")
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

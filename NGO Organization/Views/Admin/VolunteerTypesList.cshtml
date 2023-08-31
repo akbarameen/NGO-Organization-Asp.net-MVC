@@ -1,0 +1,54 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_VolunteerTypes>
+
+@{
+    ViewBag.Title = "VolunteerTypesList";
+}
+
+@Html.Raw(TempData["AddTypeMessage"])
+@Html.Raw(TempData["EditTypeMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Volunteer Titles
+        </h3>
+        <p>
+            @Html.ActionLink("+ Add New Title", "AddVolunteerTypes", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+      
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of Volunteer types</h4>
+
+
+                 
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VolunteerTypeName)
+                            </th>
+                            <th>Action</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VolunteerTypeName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditVolunteerTypes", new { id = item.VolunteerTypeID })
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_DonationCauses>
+
+@{
+    ViewBag.Title = "Causes";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>Causes</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Causes</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="cp-main-content">
+    <section class="cp-causes-section cp-project-section pd-tb100">
+        <div class="container">
+            <div class="cp-causes-inner-outer">
+                <div class="row">
+                 
+                    
+                    
+                    @foreach (var item in Model)
+                    {
+                        <div  class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="cp-causes-item">
+                                <figure class="cp-thumb">
+                                    <img src="@Url.Content(item.CauseImage)" style="height: 300px;" alt="">
+                                </figure>
+                                <div class="cp-text">
+                                    <span class="cp-mapicon">
+                                        <i class="fa fa-map-marker"
+                                           aria-hidden="true"></i>
+                                    </span>
+                                    <ul class="meta-listed">
+                                        <li><span style="padding-right:10px;"> Added by :   </span> <i class="fa fa-user" aria-hidden="true"></i>  @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)</li>
+                                         
+                                    </ul>
+                                    <h5>
+                                        <a href="cause-detail.html">
+                                            @Html.DisplayFor(modelItem => item.CauseName)
+                                        </a>
+                                    </h5>
+                                    <div class="cp-progressbar-outer">
+                                     
+                                        <ul class="cp-progress-info-list">
+                                            @*<li>@Html.DisplayFor(modelItem => item.CauseDiscription)</li>*@
+                                                
+                                                                                   
+                                            <li class="progress-text">
+                                                Goal:<span class="th-color">$685,200</span>
+                                            </li>
+                                            <li class="progress-text">
+                                                Donators:<span class="th-color">
+                                                    14
+                                                    Donors
+                                                </span>
+                                            </li>
+                                            <li class="progress-text">
+                                                Raised:<span class="th-color">$472,183</span>
+                                            </li>
+                                            <li class="progress-text">
+                                                Time Remain:<span class="th-color">
+                                                    397 Days
+                                                    Left
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bottom-holder">
+                                    
+                                    <a href=" @Url.Action("Donate", "Home") " class="cp-btn-style btn-donors"> Donate Now </a>
+                                </div>
+                            </div>
+
+                            
+                        </div>
+                    }
+
+
+
+
+
+                    </div>
+            </div>
+            <div class="cp-pagination-row text-center">
+                <nav class="cp-pagination-listed">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+</div>

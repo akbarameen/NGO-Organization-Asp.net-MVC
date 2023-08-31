@@ -1,0 +1,86 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Donations>
+
+@{
+    ViewBag.Title = "Donations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Donations
+        </h3>
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of recieved Donations</h4>
+                    @*<p class="page-description"> Click on <code>Details</code> to check further inforamtion</p>*@
+                    <div class="row">
+                        <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                            <table id="sortable-table-1" class="table">
+                                <thead>
+
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Username)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Email)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DonationAmount)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DonationDateTime)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.tbl_DonationCauses.CauseName)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+
+
+
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Username)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Email)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DonationAmount)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DonationDateTime)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.tbl_DonationCauses.CauseName)
+                                            </td>
+                                    
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

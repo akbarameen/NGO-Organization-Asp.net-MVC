@@ -1,0 +1,99 @@
+﻿@model NGO_Organization.Models.tbl_Events
+
+@{
+    ViewBag.Title = "Add Event";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Add Event
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Add upcoming Event information below</h4>
+                    @using (Html.BeginForm("AddEvent", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EventTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.EventTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EventTitle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EventDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(model => model.EventDescription, new { cols = 35, @rows = 6, @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.EventDescription, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EventDateTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(model => model.EventDateTime, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                            @Html.ValidationMessageFor(model => model.EventDateTime, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EventLocation, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.EventLocation, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.EventLocation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdminID, "AdminID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.AdminID, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.DropDownList("AdminID", null, htmlAttributes: new { @class = "form-control" })*@
+                            @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.EventImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            <input type="file" name="EventImgFile" style="margin-top: 5px" value="" required />
+                            <div class="text-danger"> @ViewBag.SizeErrorMessage</div>
+                            <div class="text-danger"> @ViewBag.ExtensionErrorMessage</div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.EventStatus, new { htmlAttributes = new { @class = "form-control", @Value = 1, @readonly = "Readonly", } })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-12">
+                            <input type="submit" value="Add Event" class="btn btn-inverse-primary" />
+                        </div>
+                    </div>
+                </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to Events List", "Events")
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

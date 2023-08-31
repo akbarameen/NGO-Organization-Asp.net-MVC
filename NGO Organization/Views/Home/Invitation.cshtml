@@ -1,0 +1,37 @@
+﻿@model NGO_Organization.Models.tbl_invitation
+
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h4>Send your comments.</h4>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.InviteMessage, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.InviteMessage, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.InviteMessage)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.InviteToMail, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.InviteToMail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.InviteToMail)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Send" />
+        </div>
+    </div>
+}
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

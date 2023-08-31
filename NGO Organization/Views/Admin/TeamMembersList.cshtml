@@ -1,0 +1,74 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_TeamMembers>
+
+@{
+    ViewBag.Title = "TeamMembersList";
+}
+@Html.Raw(TempData["AddMemberMessage"])
+@Html.Raw(TempData["EditMemberMessage"])
+@Html.Raw(TempData["DeleteMemberMessage"])
+
+<!-- partial -->
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Team Members
+        </h3>
+        <p>
+            @Html.ActionLink("+ Add New Member", "AddTeamMember", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+        @*<nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active sortable-data" aria-current="page"> Our Team</li>
+                    <li class="breadcrumb-item"><a href="#">Team Members</a></li>
+
+                </ol>
+            </nav>*@
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of our team members</h4>
+                    <p class="page-description"> Click on <code>Details</code> to check further inforamtion</p>
+                    <div class="row">
+                        <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                            <table id="sortable-table-1" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th class="sortStyle">@Html.DisplayNameFor(model => model.MemberName)<i class="fa fa-angle-down"></i></th>
+                                        <th class="sortStyle">Title<i class="fa fa-angle-down"></i></th>
+                                        <th class="sortStyle">Image<i class="fa fa-angle-down"></i></th>
+                                        <th class="sortStyle">Actions <i class="fa fa-angle-down"></i></th>
+                                        @*<th class="sortStyle">Added by Admin<i class="fa fa-angle-down"></i></th>*@
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>  @Html.DisplayFor(modelItem => item.MemberID)</td>
+                                        <td> @Html.DisplayFor(modelItem => item.MemberName)</td>
+                                        <td> @Html.DisplayFor(modelItem => item.tbl_TeamMemberTitles.TitleName)</td>
+                                        <td> <img src="@Url.Content(item.MemberImage)" style="height: 60px; width: 60px;" /></td>
+                                        @*<td> @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)</td>*@
+                                        <td>
+                                            @Html.ActionLink("Edit", "EditTeamMember", new { id = item.MemberID }) |
+                                            @Html.ActionLink("Details", "TeamMemberDetails", new { id = item.MemberID })
+
+                                        </td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

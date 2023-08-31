@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbNGOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_aboutus">
+    <Key>
+      <PropertyRef Name="AboutID" />
+    </Key>
+    <Property Name="AboutID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="WhatWeDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CareerWithUs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReadAboutUS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OurMission" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_about__Admin__756D6ECB" FromRole="tbl_aboutus" ToRole="tbl_Admins" />
+  </EntityType>
+  <EntityType Name="tbl_Achivements">
+    <Key>
+      <PropertyRef Name="AchiveID" />
+    </Key>
+    <Property Name="AchiveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AchiveTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AchiveImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AchiveDescription" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AchiveDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="AchiveStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Achiv__Admin__1AD3FDA4" FromRole="tbl_Achivements" ToRole="tbl_Admins" />
+  </EntityType>
+  <EntityType Name="tbl_Admins">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdminFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminImage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_aboutus" Relationship="Self.FK__tbl_about__Admin__756D6ECB" FromRole="tbl_Admins" ToRole="tbl_aboutus" />
+    <NavigationProperty Name="tbl_Achivements" Relationship="Self.FK__tbl_Achiv__Admin__1AD3FDA4" FromRole="tbl_Admins" ToRole="tbl_Achivements" />
+    <NavigationProperty Name="tbl_AssociativeNGO" Relationship="Self.FK__tbl_Assoc__Admin__0A688BB1" FromRole="tbl_Admins" ToRole="tbl_AssociativeNGO" />
+    <NavigationProperty Name="tbl_Blogs" Relationship="Self.FK__tbl_Blogs__Admin__17F790F9" FromRole="tbl_Admins" ToRole="tbl_Blogs" />
+    <NavigationProperty Name="tbl_DonationCauses" Relationship="Self.FK__tbl_Donat__Admin__245D67DE" FromRole="tbl_Admins" ToRole="tbl_DonationCauses" />
+    <NavigationProperty Name="tbl_Events" Relationship="Self.FK__tbl_Event__Admin__4F47C5E3" FromRole="tbl_Admins" ToRole="tbl_Events" />
+    <NavigationProperty Name="tbl_Gallaries" Relationship="Self.FK__tbl_Galla__Admin__0F624AF8" FromRole="tbl_Admins" ToRole="tbl_Gallaries" />
+    <NavigationProperty Name="tbl_Projects" Relationship="Self.FK__tbl_Proje__Admin__607251E5" FromRole="tbl_Admins" ToRole="tbl_Projects" />
+    <NavigationProperty Name="tbl_TeamMemberTitles" Relationship="Self.FK__tbl_TeamM__Admin__02FC7413" FromRole="tbl_Admins" ToRole="tbl_TeamMemberTitles" />
+    <NavigationProperty Name="tbl_TeamMembers" Relationship="Self.FK__tbl_TeamM__Admin__06CD04F7" FromRole="tbl_Admins" ToRole="tbl_TeamMembers" />
+  </EntityType>
+  <EntityType Name="tbl_AskQuesions">
+    <Key>
+      <PropertyRef Name="QuesionID" />
+    </Key>
+    <Property Name="QuesionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="QuestionTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="QuestionDateTime" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="tbl_Users" Relationship="Self.FK__tbl_AskQu__UserI__634EBE90" FromRole="tbl_AskQuesions" ToRole="tbl_Users" />
+  </EntityType>
+  <EntityType Name="tbl_AssociativeNGO">
+    <Key>
+      <PropertyRef Name="NgoID" />
+    </Key>
+    <Property Name="NgoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NgoName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgoEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgoLogo" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgoPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgoWebsite" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NgoDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" />
+    <Property Name="NGOStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Assoc__Admin__0A688BB1" FromRole="tbl_AssociativeNGO" ToRole="tbl_Admins" />
+  </EntityType>
+  <EntityType Name="tbl_Blogs">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BlogImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BlogDescription" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BlogDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="BlogStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Blogs__Admin__17F790F9" FromRole="tbl_Blogs" ToRole="tbl_Admins" />
+  </EntityType>
+  <EntityType Name="tbl_contactus">
+    <Key>
+      <PropertyRef Name="ContactID" />
+    </Key>
+    <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="tbl_Users" Relationship="Self.FK__tbl_conta__UserI__58D1301D" FromRole="tbl_contactus" ToRole="tbl_Users" />
+  </EntityType>
+  <EntityType Name="tbl_DonationCauses">
+    <Key>
+      <PropertyRef Name="CauseID" />
+    </Key>
+    <Property Name="CauseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CauseName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CauseDiscription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CauseImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Donat__Admin__245D67DE" FromRole="tbl_DonationCauses" ToRole="tbl_Admins" />
+    <NavigationProperty Name="tbl_Donations" Relationship="Self.FK__tbl_Donat__Cause__3F115E1A" FromRole="tbl_DonationCauses" ToRole="tbl_Donations" />
+  </EntityType>
+  <EntityType Name="tbl_Donations">
+    <Key>
+      <PropertyRef Name="DonationID" />
+    </Key>
+    <Property Name="DonationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DonationAmount" Type="Int32" Nullable="false" />
+    <Property Name="DonationDateTime" Type="DateTime" Precision="3" />
+    <Property Name="CauseID" Type="Int32" />
+    <Property Name="CardName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CardOwner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CExpirydate" Type="DateTime" Precision="3" />
+    <Property Name="CVCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_DonationCauses" Relationship="Self.FK__tbl_Donat__Cause__3F115E1A" FromRole="tbl_Donations" ToRole="tbl_DonationCauses" />
+  </EntityType>
+  <EntityType Name="tbl_Events">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EventDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EventDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EventLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EventImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" />
+    <Property Name="EventStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Event__Admin__4F47C5E3" FromRole="tbl_Events" ToRole="tbl_Admins" />
+  </EntityType>
+  <EntityType Name="tbl_Gallaries">
+    <Key>
+      <PropertyRef Name="Gid" />
+    </Key>
+    <Property Name="Gid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GallaryTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GallaryImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <Property Name="ImageStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Galla__Admin__0F624AF8" FromRole="tbl_Gallaries" ToRole="tbl_Admins" />
+  </EntityType>
+  <EntityType Name="tbl_invitation">
+    <Key>
+      <PropertyRef Name="InviteID" />
+    </Key>
+    <Property Name="InviteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InviteMessage" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="InviteToMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
+    <NavigationProperty Name="tbl_Users" Relationship="Self.FK__tbl_invit__UserI__7849DB76" FromRole="tbl_invitation" ToRole="tbl_Users" />
+  </EntityType>
+  <EntityType Name="tbl_Projects">
+    <Key>
+      <PropertyRef Name="ProjectID" />
+    </Key>
+    <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MemberID" Type="Int32" />
+    <Property Name="AdminID" Type="Int32" />
+    <Property Name="ProjectStatus" Type="Int32" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_Proje__Admin__607251E5" FromRole="tbl_Projects" ToRole="tbl_Admins" />
+    <NavigationProperty Name="tbl_TeamMembers" Relationship="Self.FK__tbl_Proje__Membe__5F7E2DAC" FromRole="tbl_Projects" ToRole="tbl_TeamMembers" />
+  </EntityType>
+  <EntityType Name="tbl_TeamMembers">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MemberImage" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MemberDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TitleID" Type="Int32" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_TeamM__Admin__06CD04F7" FromRole="tbl_TeamMembers" ToRole="tbl_Admins" />
+    <NavigationProperty Name="tbl_Projects" Relationship="Self.FK__tbl_Proje__Membe__5F7E2DAC" FromRole="tbl_TeamMembers" ToRole="tbl_Projects" />
+    <NavigationProperty Name="tbl_TeamMemberTitles" Relationship="Self.FK__tbl_TeamM__Title__05D8E0BE" FromRole="tbl_TeamMembers" ToRole="tbl_TeamMemberTitles" />
+  </EntityType>
+  <EntityType Name="tbl_TeamMemberTitles">
+    <Key>
+      <PropertyRef Name="TitleID" />
+    </Key>
+    <Property Name="TitleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TitleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Admins" Relationship="Self.FK__tbl_TeamM__Admin__02FC7413" FromRole="tbl_TeamMemberTitles" ToRole="tbl_Admins" />
+    <NavigationProperty Name="tbl_TeamMembers" Relationship="Self.FK__tbl_TeamM__Title__05D8E0BE" FromRole="tbl_TeamMemberTitles" ToRole="tbl_TeamMembers" />
+  </EntityType>
+  <EntityType Name="tbl_Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbl_AskQuesions" Relationship="Self.FK__tbl_AskQu__UserI__634EBE90" FromRole="tbl_Users" ToRole="tbl_AskQuesions" />
+    <NavigationProperty Name="tbl_contactus" Relationship="Self.FK__tbl_conta__UserI__58D1301D" FromRole="tbl_Users" ToRole="tbl_contactus" />
+    <NavigationProperty Name="tbl_invitation" Relationship="Self.FK__tbl_invit__UserI__7849DB76" FromRole="tbl_Users" ToRole="tbl_invitation" />
+  </EntityType>
+  <EntityType Name="tbl_Volunteers">
+    <Key>
+      <PropertyRef Name="VolunteerID" />
+    </Key>
+    <Property Name="VolunteerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VolunteerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VolunteerReason" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VolunteerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VolunteerTypeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_VolunteerTypes" Relationship="Self.FK__tbl_Volun__Volun__0C85DE4D" FromRole="tbl_Volunteers" ToRole="tbl_VolunteerTypes" />
+  </EntityType>
+  <EntityType Name="tbl_VolunteerTypes">
+    <Key>
+      <PropertyRef Name="VolunteerTypeID" />
+    </Key>
+    <Property Name="VolunteerTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VolunteerTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tbl_Volunteers" Relationship="Self.FK__tbl_Volun__Volun__0C85DE4D" FromRole="tbl_VolunteerTypes" ToRole="tbl_Volunteers" />
+  </EntityType>
+  <Association Name="FK__tbl_about__Admin__756D6ECB">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="0..1" />
+    <End Role="tbl_aboutus" Type="Self.tbl_aboutus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_aboutus">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Achiv__Admin__1AD3FDA4">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="1" />
+    <End Role="tbl_Achivements" Type="Self.tbl_Achivements" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_Achivements">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Assoc__Admin__0A688BB1">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="0..1" />
+    <End Role="tbl_AssociativeNGO" Type="Self.tbl_AssociativeNGO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_AssociativeNGO">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Blogs__Admin__17F790F9">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="1" />
+    <End Role="tbl_Blogs" Type="Self.tbl_Blogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_Blogs">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Donat__Admin__245D67DE">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="0..1" />
+    <End Role="tbl_DonationCauses" Type="Self.tbl_DonationCauses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_DonationCauses">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Event__Admin__4F47C5E3">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="0..1" />
+    <End Role="tbl_Events" Type="Self.tbl_Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_Events">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Galla__Admin__0F624AF8">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="1" />
+    <End Role="tbl_Gallaries" Type="Self.tbl_Gallaries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_Gallaries">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Admin__607251E5">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="0..1" />
+    <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_Projects">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TeamM__Admin__02FC7413">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="1" />
+    <End Role="tbl_TeamMemberTitles" Type="Self.tbl_TeamMemberTitles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_TeamMemberTitles">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TeamM__Admin__06CD04F7">
+    <End Role="tbl_Admins" Type="Self.tbl_Admins" Multiplicity="1" />
+    <End Role="tbl_TeamMembers" Type="Self.tbl_TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Admins">
+        <PropertyRef Name="AdminID" />
+      </Principal>
+      <Dependent Role="tbl_TeamMembers">
+        <PropertyRef Name="AdminID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_AskQu__UserI__634EBE90">
+    <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="0..1" />
+    <End Role="tbl_AskQuesions" Type="Self.tbl_AskQuesions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_AskQuesions">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_conta__UserI__58D1301D">
+    <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="0..1" />
+    <End Role="tbl_contactus" Type="Self.tbl_contactus" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_contactus">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Donat__Cause__3F115E1A">
+    <End Role="tbl_DonationCauses" Type="Self.tbl_DonationCauses" Multiplicity="0..1" />
+    <End Role="tbl_Donations" Type="Self.tbl_Donations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_DonationCauses">
+        <PropertyRef Name="CauseID" />
+      </Principal>
+      <Dependent Role="tbl_Donations">
+        <PropertyRef Name="CauseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_invit__UserI__7849DB76">
+    <End Role="tbl_Users" Type="Self.tbl_Users" Multiplicity="0..1" />
+    <End Role="tbl_invitation" Type="Self.tbl_invitation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tbl_invitation">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Proje__Membe__5F7E2DAC">
+    <End Role="tbl_TeamMembers" Type="Self.tbl_TeamMembers" Multiplicity="0..1" />
+    <End Role="tbl_Projects" Type="Self.tbl_Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TeamMembers">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="tbl_Projects">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_TeamM__Title__05D8E0BE">
+    <End Role="tbl_TeamMemberTitles" Type="Self.tbl_TeamMemberTitles" Multiplicity="1" />
+    <End Role="tbl_TeamMembers" Type="Self.tbl_TeamMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_TeamMemberTitles">
+        <PropertyRef Name="TitleID" />
+      </Principal>
+      <Dependent Role="tbl_TeamMembers">
+        <PropertyRef Name="TitleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_Volun__Volun__0C85DE4D">
+    <End Role="tbl_VolunteerTypes" Type="Self.tbl_VolunteerTypes" Multiplicity="1" />
+    <End Role="tbl_Volunteers" Type="Self.tbl_Volunteers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_VolunteerTypes">
+        <PropertyRef Name="VolunteerTypeID" />
+      </Principal>
+      <Dependent Role="tbl_Volunteers">
+        <PropertyRef Name="VolunteerTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dbNGOEntities6" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_aboutus" EntityType="Self.tbl_aboutus" />
+    <EntitySet Name="tbl_Achivements" EntityType="Self.tbl_Achivements" />
+    <EntitySet Name="tbl_Admins" EntityType="Self.tbl_Admins" />
+    <EntitySet Name="tbl_AskQuesions" EntityType="Self.tbl_AskQuesions" />
+    <EntitySet Name="tbl_AssociativeNGO" EntityType="Self.tbl_AssociativeNGO" />
+    <EntitySet Name="tbl_Blogs" EntityType="Self.tbl_Blogs" />
+    <EntitySet Name="tbl_contactus" EntityType="Self.tbl_contactus" />
+    <EntitySet Name="tbl_DonationCauses" EntityType="Self.tbl_DonationCauses" />
+    <EntitySet Name="tbl_Donations" EntityType="Self.tbl_Donations" />
+    <EntitySet Name="tbl_Events" EntityType="Self.tbl_Events" />
+    <EntitySet Name="tbl_Gallaries" EntityType="Self.tbl_Gallaries" />
+    <EntitySet Name="tbl_invitation" EntityType="Self.tbl_invitation" />
+    <EntitySet Name="tbl_Projects" EntityType="Self.tbl_Projects" />
+    <EntitySet Name="tbl_TeamMembers" EntityType="Self.tbl_TeamMembers" />
+    <EntitySet Name="tbl_TeamMemberTitles" EntityType="Self.tbl_TeamMemberTitles" />
+    <EntitySet Name="tbl_Users" EntityType="Self.tbl_Users" />
+    <EntitySet Name="tbl_Volunteers" EntityType="Self.tbl_Volunteers" />
+    <EntitySet Name="tbl_VolunteerTypes" EntityType="Self.tbl_VolunteerTypes" />
+    <AssociationSet Name="FK__tbl_about__Admin__756D6ECB" Association="Self.FK__tbl_about__Admin__756D6ECB">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_aboutus" EntitySet="tbl_aboutus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Achiv__Admin__1AD3FDA4" Association="Self.FK__tbl_Achiv__Admin__1AD3FDA4">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_Achivements" EntitySet="tbl_Achivements" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Assoc__Admin__0A688BB1" Association="Self.FK__tbl_Assoc__Admin__0A688BB1">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_AssociativeNGO" EntitySet="tbl_AssociativeNGO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Blogs__Admin__17F790F9" Association="Self.FK__tbl_Blogs__Admin__17F790F9">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_Blogs" EntitySet="tbl_Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Donat__Admin__245D67DE" Association="Self.FK__tbl_Donat__Admin__245D67DE">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_DonationCauses" EntitySet="tbl_DonationCauses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Event__Admin__4F47C5E3" Association="Self.FK__tbl_Event__Admin__4F47C5E3">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_Events" EntitySet="tbl_Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Galla__Admin__0F624AF8" Association="Self.FK__tbl_Galla__Admin__0F624AF8">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_Gallaries" EntitySet="tbl_Gallaries" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Admin__607251E5" Association="Self.FK__tbl_Proje__Admin__607251E5">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TeamM__Admin__02FC7413" Association="Self.FK__tbl_TeamM__Admin__02FC7413">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_TeamMemberTitles" EntitySet="tbl_TeamMemberTitles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TeamM__Admin__06CD04F7" Association="Self.FK__tbl_TeamM__Admin__06CD04F7">
+      <End Role="tbl_Admins" EntitySet="tbl_Admins" />
+      <End Role="tbl_TeamMembers" EntitySet="tbl_TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_AskQu__UserI__634EBE90" Association="Self.FK__tbl_AskQu__UserI__634EBE90">
+      <End Role="tbl_Users" EntitySet="tbl_Users" />
+      <End Role="tbl_AskQuesions" EntitySet="tbl_AskQuesions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_conta__UserI__58D1301D" Association="Self.FK__tbl_conta__UserI__58D1301D">
+      <End Role="tbl_Users" EntitySet="tbl_Users" />
+      <End Role="tbl_contactus" EntitySet="tbl_contactus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Donat__Cause__3F115E1A" Association="Self.FK__tbl_Donat__Cause__3F115E1A">
+      <End Role="tbl_DonationCauses" EntitySet="tbl_DonationCauses" />
+      <End Role="tbl_Donations" EntitySet="tbl_Donations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_invit__UserI__7849DB76" Association="Self.FK__tbl_invit__UserI__7849DB76">
+      <End Role="tbl_Users" EntitySet="tbl_Users" />
+      <End Role="tbl_invitation" EntitySet="tbl_invitation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Proje__Membe__5F7E2DAC" Association="Self.FK__tbl_Proje__Membe__5F7E2DAC">
+      <End Role="tbl_TeamMembers" EntitySet="tbl_TeamMembers" />
+      <End Role="tbl_Projects" EntitySet="tbl_Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_TeamM__Title__05D8E0BE" Association="Self.FK__tbl_TeamM__Title__05D8E0BE">
+      <End Role="tbl_TeamMemberTitles" EntitySet="tbl_TeamMemberTitles" />
+      <End Role="tbl_TeamMembers" EntitySet="tbl_TeamMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_Volun__Volun__0C85DE4D" Association="Self.FK__tbl_Volun__Volun__0C85DE4D">
+      <End Role="tbl_VolunteerTypes" EntitySet="tbl_VolunteerTypes" />
+      <End Role="tbl_Volunteers" EntitySet="tbl_Volunteers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

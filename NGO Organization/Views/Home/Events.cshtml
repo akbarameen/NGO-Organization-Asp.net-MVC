@@ -1,0 +1,272 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Events>
+
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>Event List</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Event List</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="cp-main-content">
+    <section class="cp-event-section cp-event-section_v2 pd-tb100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="cp-event-listed cp-event-listed_v2">
+                        <li class="event-list-item">
+                            <div class="row ">
+
+                                @foreach (var item in Model)
+                                {
+
+                                    if (item.EventStatus == 1)
+                                    {
+
+
+                                    <div class="col-md-12 col-sm-12 col-xs-12 mb-4">
+                                        <div class="cp-event-list-item_v2">
+                                            <figure class="cp-thumb">
+                                                <img src="@Url.Content(item.EventImage)" style="height: 300px; width: 100%; border-radius: 10px; " alt="">
+                                                <figcaption class="cp-caption">
+                                                    <a href="event-detail.html" class="cp-btn-style btn-event"
+                                                       data-toggle="modal" data-target="#eventModalCenter">
+                                                        Buy
+                                                        Tickets
+                                                    </a>
+                                                </figcaption>
+                                            </figure>
+                                            <div class="event-inner-info">
+                                                <span class="date-box">
+                                                    @*@Html.DisplayFor(modelItem => item.EventDateTime)*@
+                                                   
+                                                       
+                                                    
+                                                    <strong>@Convert.ToDateTime(item.EventDateTime).ToString("dd")</strong>
+                                                    <span class="th-color">  @Convert.ToDateTime(item.EventDateTime).ToString("MMM, yyyy")</span>
+                                                </span>
+                                                <div class="cp-text">
+                                                    <ul class="meta-listed">
+                                                        <li>
+                                                         
+                                                            <i class="fa fa-clock-o" aria-hidden="true"></i>@Convert.ToDateTime(item.EventDateTime).ToString("h:mm tt")
+                                                        </li>
+                                                    </ul>
+                                                    <h5>
+                                                        <a href="@Url.Action("EventDetails", "Home", new { id = item.EventID })"> @Html.DisplayFor(modelItem => item.EventTitle)</a>
+                                                    </h5>
+                                                    <ul class="meta-listed">
+                                                        <li>
+                                                            <i class="fa fa-user" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)
+                                                        </li>
+                                                        <li>
+                                                            <i class="fa fa-map-marker" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.EventLocation)
+                                                        </li>
+                                                    </ul>
+                                                    <p style="height: 50px; overflow: hidden;">
+                                                        @Html.DisplayFor(modelItem => item.EventDescription)
+                                                    </p>
+                                                    @Html.ActionLink("Event Details", "EventDetails", new { id = item.EventID }, htmlAttributes: new { style = "text-decoration: none; ", @class = "cp-btn-style_v3" })
+                                                    <div class="cp-countdown-holder">
+                                                        <div class="cp-countdown"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    }
+                                }
+
+                            </div>
+                        </li>
+
+                    </ul>
+                    <div class="cp-pagination-row text-center">
+                        <nav class="cp-pagination-listed">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <aside class="cp-asidebar-outer">
+                        <div class="widget widget-search">
+                            <h4>Search</h4>
+                            <form method="get" class="search-form">
+                                <input type="text" placeholder="Enter Keywords">
+                                <button class="btn-submit" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="widget widget-text">
+                            <h4>Text Widget</h4>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer.
+                            </p>
+                        </div>
+                        <div class="widget widget-recentpost">
+                            <h4>Recent post</h4>
+                            <ul class="cp-recent-listed">
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-05.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">It is a long established fact for child</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>15 May, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-06.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Animals Migration to Save their Lives</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>10 June, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-04.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Wind Turbines and Solar Panels Energy</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>20 Aug, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-03.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Animals Migration to Save their Lives</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>20 Dec, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-news">
+                            <h4>Recent News</h4>
+                            <div class="owl-carousel" id="cp-news-slider">
+                                <div class="slider-item">
+                                    <figure class="cp-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-img-01.jpg" alt="">
+                                    </figure>
+                                    <div class="cp-text">
+                                        <h6><a href="#">It’s Right for Everyone to get Healthy Food</a></h6>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <figure class="cp-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-img-02.jpg" alt="">
+                                    </figure>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Animals Migration to Save their Lives</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+        <div class="cp-event-popup-outer">
+            <div class="modal fade" id="eventModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered cp-moda-box" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="cp-event-form-outer">
+                                <div class="text-center">
+                                    <h3>Book This Event</h3>
+                                    <p>Sed do eiusmod tempor incididunt ut labore</p>
+                                </div>
+                                <form method="get" class="cp-donation-form">
+                                    <div class="inner-holder">
+                                        <select name="project" class="cp-select">
+                                            <option value="space">Space</option>
+                                            <option value="space">12</option>
+                                            <option value="space">30</option>
+                                        </select>
+                                    </div>
+                                    <div class="inner-holder">
+                                        <input type="text" name="fullname" placeholder="Name">
+                                    </div>
+                                    <div class="inner-holder">
+                                        <input type="tel" name="phone" placeholder="Phone">
+                                    </div>
+                                    <div class="inner-holder">
+                                        <input type="email" name="email" placeholder="Email">
+                                    </div>
+                                    <div class="inner-holder">
+                                        <textarea name="Comment" placeholder="Comment"></textarea>
+                                    </div>
+                                    <div class="inner-holder">
+                                        <button class="cp-btn-style btn-submit" type="submit" name="submit">
+                                            Book
+                                            Event Now
+                                        </button>
+                                    </div>
+                                    <div class="inner-holder">
+                                        <p>
+                                            <input type="checkbox" name="vehicle" value="Bike">
+                                            <span></span>
+                                            <a href="#">Log in</a> if you already have an account with us.
+                                            <br>
+                                        </p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

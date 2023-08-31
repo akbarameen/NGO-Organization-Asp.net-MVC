@@ -1,0 +1,66 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Events>
+
+@{
+    ViewBag.Title = "Events";
+}
+
+@Html.Raw(TempData["AddEventMessage"])
+@Html.Raw(TempData["EditEventMessage"])
+
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Up Coming Events
+        </h3>
+
+        <p>
+            @Html.ActionLink("+ Add Event", "Addevent", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+    </div>
+    <p class="page-description"> Click on <code>Details</code> to check More inforamtion like Descriptions etc</p>
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card">
+                <img class="card-img-top" src="@Url.Content(item.EventImage)" style=" height: 200px; width: 100%;" />
+
+                <div class="card-body">
+                    <h4 class="card-title">    @Html.DisplayFor(modelItem => item.EventTitle)</h4>
+                    <p style="font-weight: 500;">Posted By : <span style="font-weight: 600;  text-transform: uppercase"> @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)</span></p>
+                    <p style="font-weight: 500;"> Date and Time : <span style="font-weight: 400; color:blueviolet;"> @Html.DisplayFor(modelItem => item.EventDateTime)</span></p>
+                    <p style="font-weight: 500;"> Location:  @Html.DisplayFor(modelItem => item.EventLocation)</p>
+                    <div class="d-flex align-content-center justify-content-between">
+                        <div>
+                            @{
+                                if (item.EventStatus == 1)
+                                {
+                                    <span class="badge badge-outline-success badge-pill">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-outline-danger badge-pill">Deactive</span>
+                                }
+                            }
+                        </div>
+                        <div class="align-content-center">
+                            @Html.ActionLink("Edit", "EditEvent", new { id = item.EventID }) |
+                            @Html.ActionLink("Details", "EventDetails", new { id = item.EventID }) 
+
+                        </div>
+
+
+                    </div>
+                  
+
+
+                   
+                </div>
+            </div>
+
+
+        }
+    </div>
+</div>

@@ -1,0 +1,251 @@
+﻿
+@{
+    ViewBag.Title = "About Us";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>About Us</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">About us</li>s
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- About Start -->
+<div class="about">
+    <div class="container">
+        <div class="row align-items-center">
+            @foreach (var item in ViewBag.Aboutus)
+            {
+                <div class="col-lg-12">
+                    <div class="cp-heading-outer mt-5">
+                        <span class="th-color">Details about us </span>
+                        <h1>NGO Organization</h1>
+                        <p>Worldwide non-profit charity organization</p>
+                    </div>
+
+
+                    <div class="about-tab">
+                        <ul class="nav nav-pills nav-justified">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="pill"
+                                   href="#tab-content-1">What we do</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#tab-content-2">Career with us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#tab-content-3">Read about us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="pill" href="#tab-content-4">Our Mission</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content mt-4">
+                            <div id="tab-content-1" class="container tab-pane active">
+                                @item.WhatWeDo
+                            </div>
+                            <div id="tab-content-2" class="container tab-pane fade">
+                                @item.CareerWithUs
+                            </div>
+                            <div id="tab-content-3" class="container tab-pane fade">
+                                @item.ReadAboutUS
+                            </div>
+                            <div id="tab-content-4" class="container tab-pane fade">
+                                @item.OurMission
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </div>
+</div>
+<!-- About End -->
+@*our team section starts here*@
+
+<section class="cp-team-section cp-team-section_home cp-section_img pd-tb100">
+    <div class="container">
+        <div class="cp-heading-outer">
+            <span class="th-color">Awesome guys behind our charity activities </span>
+            <h1>Team Members</h1>
+            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p>
+        </div>
+        <div class="owl-carousel" id="cp-team-slider">
+
+
+
+            @foreach (var item in ViewBag.tList)
+            {
+                <div class="item">
+                    <div class="cp-team-item">
+                        <figure class="cp-thumb">
+                            <img src="@Url.Content(item.MemberImage)" style="height: 370px; width: 100%;  " alt="">
+                            <figcaption class="cp-caption">
+                                <div class="cp-social-outer">
+                                    <ul class="cp-social-links cp-social-links_v2">
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-google-plus"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-twitter"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-linkedin"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-youtube"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="cp-text">
+                            <h4 style="text-transform: capitalize;"><a href="team.html">@item.MemberName</a></h4>
+                            <span class="th-color degination">
+                                @foreach (var Title in ViewBag.tTitles)
+                                {
+
+                                    if (item.TitleID == Title.TitleID)
+                                    {
+                                        @Title.TitleName
+
+                                    }
+                                }
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+
+
+
+
+
+        </div>
+
+    </div>
+</section>
+
+
+@*our team section ends here*@
+
+
+
+
+<style>
+
+
+    .cp-team-section.cp-section_img:before {
+        top: 0px;
+        height: initial;
+        bottom: 0;
+    }
+
+    /*******************************/
+/********** About CSS **********/
+/*******************************/
+.about {
+    position: relative;
+    width: 100%;
+    padding: 45px 0;
+}
+
+.about .section-header {
+    margin-bottom: 30px;
+    margin-left: 0;
+}
+
+.about .about-img {
+    width: 100%;
+    height: 100vh;
+}
+
+.about .about-tab {
+    width: 100%;
+}
+
+.about .about-tab .nav.nav-pills .nav-link {
+    padding: 8px;
+    font-weight: 600;
+    background: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+    transition: none;
+}
+
+    .about .about-tab .nav.nav-pills .nav-link:hover,
+    .about .about-tab .nav.nav-pills .nav-link.active {
+        color: #00a3e4;
+        padding-bottom: 7px;
+        border-bottom: 3px solid #00a3e4;
+    }
+
+.about .about-tab .tab-content {
+    padding: 15px 0 0 0;
+    background: transparent;
+}
+
+.about .about-tab .tab-content .container {
+    padding: 0;
+}
+
+@*@media (max-width: 991.98px) {
+    .about .section-header {
+        margin-top: 30px;
+    }
+}*@
+
+
+</style>

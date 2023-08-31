@@ -1,0 +1,102 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Projects>
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>Recent Projects</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Recent Projects</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="cp-main-content">
+    <section class="cp-causes-section cp-project-section pd-tb100">
+        <div class="container">
+            <div class="cp-causes-inner-outer cp-project-listed">
+             
+                <div class="row cp-filterOuter_v1">
+
+                    @foreach (var item in Model)
+                    {
+
+                        if (item.ProjectStatus == 1)
+                        {
+                        <div class="col-md-12 col-sm-12 col-xs-12 cp-fl-item2">
+                            <div class="cp-causes-item">
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <figure class="cp-thumb">
+                                            <img src="@Url.Content(item.ProjectImage)" style="height: 400px; width: 100%;  " alt="">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 col-xs-12">
+                                        <div class="cp-text">
+                                            <span class="cp-mapicon">
+                                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            </span>
+                                            <ul class="meta-listed">
+                                                <li><i class="fa fa-user" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)</li>
+                                                <li>
+                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>  @Convert.ToDateTime(item.ProjectDateTime).ToString("dd MMM, yyyy")
+                                                </li>
+                                            </ul>
+                                            <h5>
+                                                <a href="@Url.Action("ProjectDetails", "Home", new { id = item.ProjectID })">
+                                                    @Html.DisplayFor(modelItem => item.ProjectTitle)
+                                                </a>
+                                            </h5>
+                                            <p style="height: 100px; overflow: hidden;">
+                                                @Html.DisplayFor(modelItem => item.ProjectDescription)
+                                            </p>
+                                       
+                                            <div>
+                                                @Html.ActionLink("Project Details", "ProjectDetails", new { id = item.ProjectID }, htmlAttributes: new { style = "text-decoration: none; ", @class = "cp-btn-style_v3" })
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                     
+                        </div>
+                        }
+                    }
+                    </div>
+            </div>
+            <div class="cp-pagination-row text-center">
+                <nav class="cp-pagination-listed">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+</div>

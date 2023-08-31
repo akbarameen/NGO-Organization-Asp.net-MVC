@@ -1,0 +1,113 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_aboutus>
+
+@{
+    ViewBag.Title = "Aboutus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Raw(TempData["EditMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            More Details About us
+        </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">About us</a></li>
+                <li class="breadcrumb-item active" aria-current="page">More Details</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <div class="card-body">
+                        <div class="faq-section">
+                            <div class="container-fluid bg-success py-2">
+                                <p class="mb-0 text-white">Our Services</p>
+                            </div>
+
+
+                            <div id="accordion-1" class="accordion">
+
+
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h5 class="mb-0">
+                                            <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                               aria-controls="collapseOne">
+                                                @Html.DisplayNameFor(model => model.WhatWeDo)
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                         data-parent="#accordion-1">
+                                        <div class="card-body">
+                                            @Html.DisplayFor(modelItem => item.WhatWeDo)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingTwo">
+                                        <h5 class="mb-0">
+                                            <a data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                               aria-controls="collapseTwo">
+                                                @Html.DisplayNameFor(model => model.CareerWithUs)
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion-1">
+                                        <div class="card-body">
+                                            @Html.DisplayFor(modelItem => item.CareerWithUs)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <a data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                                               aria-controls="collapseThree">
+                                                @Html.DisplayNameFor(model => model.ReadAboutUS)
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                         data-parent="#accordion-1">
+                                        <div class="card-body">
+                                            @Html.DisplayFor(modelItem => item.ReadAboutUS)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header" id="headingThree">
+                                        <h5 class="mb-0">
+                                            <a data-toggle="collapse" data-target="#collapsefour" aria-expanded="false"
+                                               aria-controls="collapsefour">
+                                                @Html.DisplayNameFor(model => model.OurMission)
+                                            </a>
+                                        </h5>
+                                    </div>
+                                    <div id="collapsefour" class="collapse" aria-labelledby="headingThree"
+                                         data-parent="#accordion-1">
+                                        <div class="card-body">
+                                            @Html.DisplayFor(modelItem => item.OurMission)
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p>  @Html.ActionLink("Edit", "EditAboutus", new { id = item.AboutID }) </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </div>
+</div>

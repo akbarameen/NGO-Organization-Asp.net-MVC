@@ -1,0 +1,87 @@
+﻿@model NGO_Organization.Models.tbl_Users
+
+@{
+    ViewBag.Title = "UsersDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            User Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Details</h4>
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                First Name
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserFirstName)
+                            </dd>
+
+                            <dt>
+                               Last Name
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserLastName)
+                            </dd>
+
+                            <dt>
+                              Username
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserName)
+                            </dd>
+
+                            <dt>
+                                Gender
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserGender)
+                            </dd>
+
+                            <dt>
+                               Email
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserEmail)
+                            </dd>
+
+                            <dt>
+                                Password
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.UserPassword)
+                            </dd>
+
+                        
+
+                        </dl>
+                    </div>
+                    <p>
+                       
+                        @Html.ActionLink("Back to List", "UsersList")
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

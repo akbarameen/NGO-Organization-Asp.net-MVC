@@ -1,0 +1,92 @@
+﻿@model NGO_Organization.Models.tbl_Events
+
+@{
+    ViewBag.Title = "Event Details";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Event Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Details of the title  "@Html.DisplayFor(model => model.EventTitle)"  Are listed below </h4>
+
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.EventID)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.EventID)
+                            </dd>
+
+                            <dt>
+                                Title
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.EventTitle)
+                            </dd>
+
+                            <dt>
+                                Description
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.EventDescription)
+                            </dd>
+
+                            <dt>
+                                Date Time
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.EventDateTime)
+                            </dd>
+
+                            <dt>
+                                Location
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.EventLocation)
+                            </dd>
+
+                            <dt>
+                                Image
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.EventImage)
+                            </dd>
+
+                            <dt>
+                                Posted by Admin
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_Admins.AdminFirstName)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "EditEvent", new { id = Model.EventID }) |
+                        @Html.ActionLink("Back to Events List", "Events")
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,375 @@
+﻿@model NGO_Organization.Models.tbl_Projects
+
+@{
+    ViewBag.Title = "Project Detials";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>Project Details</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Projects","Home")">Projects</a>
+                        </li>
+                        <li class="breadcrumb-item active">Project Details</li>
+                    </ol>
+                </div>S
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="cp-main-content">
+    <section class="cp-blog-section cp-project-detail-section pd-tb100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-blog-detail-inner cp-project-detail-inner">
+                        <div class="cp-causes-item">
+                            <figure class="cp-thumb">
+                                <img src="@Url.Content(Model.ProjectImage)" style="height: 500px;" alt="">
+                            </figure>
+                            <div class="cp-text">
+                                <span class="cp-mapicon">
+                                    <i class="fa fa-map-marker"
+                                       aria-hidden="true"></i>
+                                </span>
+                                <ul class="meta-listed">
+                                    <li><i class="fa fa-user" aria-hidden="true"></i> @Html.DisplayFor(model => model.tbl_Admins.AdminFirstName)</li>
+                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i>   @Convert.ToDateTime(Model.ProjectDateTime).ToString("dd MMM, yyyy")</li>
+                                </ul>
+                                <h5>   @Html.DisplayFor(model => model.ProjectTitle)</h5>
+                                <div class="cp-progressbar-outer">
+                                    <div class="cp-progressbar-inner">
+                                        <div class="progress-bar" style="width: 100%;">
+                                            <span class="percentage">100%</span>
+                                        </div>
+                                    </div>
+                                    <ul class="cp-progress-info-list cp-progress-info-list_v2">
+                                        <li class="progress-text">
+                                            Raised: <span class="th-color">$685,200</span>
+                                        </li>
+                                        <li class="progress-text">
+                                            Goal: <span class="th-color">$685,200</span>
+                                        </li>
+                                        <li class="progress-text">
+                                            Time Remain: <span class="th-color">
+                                                0 Days
+                                                Left
+                                            </span>
+                                        </li>
+                                        <li class="progress-text">
+                                            Donators: <span class="th-color">
+                                                50
+                                                Donors
+                                            </span>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="btn-completed">Completed</a>
+                                </div>
+                                <div class="cp-profile-info">
+                                    <h4>Project Incharge: </h4>
+                                    <figure class="sm-thumb">
+                                        <img src="@Url.Content(Model.tbl_TeamMembers.MemberImage)" alt="">
+                                    </figure>
+                                    <div class="profile-info">
+                                        <ul class="profile-info-listed">
+                                            <li>
+                                                Incharge Name:
+                                                <span> @Html.DisplayFor(model => model.tbl_TeamMembers.MemberName) </span>
+                                            </li>
+
+
+                                        </ul>
+                                        <ul class="profile-info-listed">
+                                            <li>
+                                                Incharge Position:
+                                                <span>@Html.DisplayFor(model => model.tbl_TeamMembers.tbl_TeamMemberTitles.TitleName)</span>
+
+
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            @Html.DisplayFor(model => model.ProjectDescription)
+                        </p>
+
+
+
+                        <blockquote class="cp-blogquotes-outer">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo tempor
+                                incididunt ut <span class="th-color">labore</span> et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation <span class="th-color">
+                                    ullamco
+                                    laboris
+                                </span> nisi ut aliquip.
+                            </p>
+                        </blockquote>
+
+                        <div class="cp-tags-outer">
+                            <strong>Tags:</strong>
+                            <ul class="tags">
+                                <li>
+                                    <a href="#">Charity</a>,
+                                </li>
+                                <li>
+                                    <a href="#">NGO</a>,
+                                </li>
+                                <li>
+                                    <a href="#">Poor People</a>,
+                                </li>
+                                <li>
+                                    <a href="#">Organizations</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="cp-social-outer_v2">
+                            <span>Share:</span>
+                            <ul class="cp-social-links cp-social-links_v3">
+                                <li>
+                                    <a href="#" title="Google Plus" data-toggle="tooltip" data-placement="top"
+                                       target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Twitter" data-toggle="tooltip" data-placement="top"
+                                       target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Linkedin" data-toggle="tooltip" data-placement="top"
+                                       target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Facebook" data-toggle="tooltip" data-placement="top"
+                                       target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Pinterest" data-toggle="tooltip" data-placement="top"
+                                       target="_blank"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Youtube" data-toggle="tooltip" data-placement="top"
+                                       target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <aside class="cp-asidebar-outer">
+                        <div class="widget widget-search">
+                            <h4>Search</h4>
+                            <form method="get" class="search-form">
+                                <input type="text" placeholder="Enter Keywords">
+                                <button class="btn-submit" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="widget widget-text">
+                            <h4>Text Widget</h4>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                unknown printer.
+                            </p>
+                        </div>
+                        <div class="widget widget-recentpost">
+                            <h4>Recent post</h4>
+                            <ul class="cp-recent-listed">
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-05.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">It is a long established fact for child</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                15 May, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-06.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Animals Migration to Save their Lives</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                10 June, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-04.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Wind Turbines and Solar Panels Energy</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                20 Aug, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="recent-list">
+                                    <div class="sm-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-sm-img-03.jpg" alt="">
+                                    </div>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Animals Migration to Save their Lives</a></h6>
+                                        <ul class="meta-listed">
+                                            <li>
+                                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                                20 Dec, 2018
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-news">
+                            <h4>Recent News</h4>
+                            <div class="owl-carousel" id="cp-news-slider">
+                                <div class="slider-item">
+                                    <figure class="cp-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-img-01.jpg" alt="">
+                                    </figure>
+                                    <div class="cp-text">
+                                        <h6><a href="#">It’s Right for Everyone to get Healthy Food</a></h6>
+                                    </div>
+                                </div>
+                                <div class="slider-item">
+                                    <figure class="cp-thumb">
+                                        <img src="~/Content/assets/images/resources/recent-img-02.jpg" alt="">
+                                    </figure>
+                                    <div class="cp-text">
+                                        <h6><a href="#">Animals Migration to Save their Lives</a></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widget widget-event">
+                            <h4>Upcoming Events</h4>
+                            <ul class="cp-event-listed">
+                                <li class="event-list-item">
+                                    <div class="event-inner-info">
+                                        <span class="date-box">
+                                            <strong class="th-color">30</strong>
+                                            <span class="th-color">Dec 2018</span>
+                                        </span>
+                                        <div class="cp-text">
+                                            <h6><a href="#">Village Electrition Committgoing to</a></h6>
+                                            <ul class="meta-listed">
+                                                <li>
+                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>10:00 am -
+                                                    05:00 pm
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="event-list-item">
+                                    <div class="event-inner-info">
+                                        <span class="date-box">
+                                            <strong class="th-color">20</strong>
+                                            <span class="th-color">Aug 2018</span>
+                                        </span>
+                                        <div class="cp-text">
+                                            <h6><a href="#">Fusce fermentum augue quam sagittis</a></h6>
+                                            <ul class="meta-listed">
+                                                <li>
+                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>09:00 am -
+                                                    04:00 pm
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="event-list-item">
+                                    <div class="event-inner-info">
+                                        <span class="date-box">
+                                            <strong class="th-color">28</strong>
+                                            <span class="th-color">Sep 2018</span>
+                                        </span>
+                                        <div class="cp-text">
+                                            <h6><a href="#">Morbi maximus lacus semegestas, ut.</a></h6>
+                                            <ul class="meta-listed">
+                                                <li>
+                                                    <i class="fa fa-clock-o" aria-hidden="true"></i>10:00 am -
+                                                    05:00 pm
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-donation">
+                            <h4>Make Donation</h4>
+                            <form method="get" class="cp-donation-form">
+                                <div class="inner-holder">
+                                    <input type="text" name="fullname" placeholder="Full Name">
+                                </div>
+                                <div class="inner-holder">
+                                    <input type="email" name="email" placeholder="Email">
+                                </div>
+                                <div class="inner-holder">
+                                    <input type="text" name="contact" placeholder="Contact">
+                                </div>
+                                <div class="inner-holder">
+                                    <select name="project" class="cp-select">
+                                        <option value="select">Select Project,Causes</option>
+                                        <option value="project">Project</option>
+                                        <option value="causes">Causes</option>
+                                    </select>
+                                </div>
+                                <div class="inner-holder">
+                                    <select name="project" class="cp-select">
+                                        <option value="donation">Donation Amount</option>
+                                        <option value="amount">$3000</option>
+                                        <option value="amount">$6000</option>
+                                        <option value="amount">$8000</option>
+                                        <option value="amount">$9200</option>
+                                    </select>
+                                </div>
+                                <div class="inner-holder">
+                                    <button class="cp-btn-style btn-submit" type="submit" name="submit">
+                                        Donate
+                                        Now
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

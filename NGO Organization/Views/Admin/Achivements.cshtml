@@ -1,0 +1,65 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Achivements>
+
+@{
+    ViewBag.Title = "Achivements";
+}
+
+@Html.Raw(TempData["AddAchivementMessage"])
+@Html.Raw(TempData["EditAchivementMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Achivements
+        </h3>
+
+        <p>
+            @Html.ActionLink("+ Add Achivement", "AddAchivement", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+    </div>
+    <p class="page-description"> Click on <code>Details</code> to check More inforamtion like Descriptions etc</p>
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card">
+                <img class="card-img-top" src="@Url.Content(item.AchiveImage)" style=" height: 200px; width: 100%;" />
+
+                <div class="card-body">
+                    <h4 class="card-title">  @Html.DisplayFor(modelItem => item.AchiveTitle)</h4>
+                    <p style="font-weight: 500;">Posted By : <span style="font-weight: 600;  text-transform: uppercase"> @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)</span></p>
+                    <p style="font-weight: 500;"> Date and Time : <span style="font-weight: 400; color:blueviolet;">@Html.DisplayFor(modelItem => item.AchiveDateTime)</span></p>
+
+                    <div class="d-flex align-content-center justify-content-between">
+                        <div>
+                            @{
+                                if (item.AchiveStatus == 1)
+                                {
+                                    <span class="badge badge-outline-success badge-pill">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-outline-danger badge-pill">Deactive</span>
+                                }
+                            }
+                        </div>
+                        <div class="align-content-center">
+                            @Html.ActionLink("Edit", "EditAchivement", new { id = item.AchiveID }) |
+                            @Html.ActionLink("Details", "AchivementDetails", new { id = item.AchiveID })
+
+
+                        </div>
+
+
+                    </div>
+
+
+                
+                </div>
+            </div>
+
+
+        }
+    </div>
+</div>

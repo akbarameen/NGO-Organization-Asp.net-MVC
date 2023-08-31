@@ -1,0 +1,68 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_TeamMemberTitles>
+
+@{
+    ViewBag.Title = "TeamMembersTitle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Raw(TempData["AddTitleMessage"])
+@Html.Raw(TempData["EditTitleMessage"])
+@Html.Raw(TempData["DeleteTitleMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Member Titles List
+        </h3>
+        <p>
+            @Html.ActionLink("+ Add New Title", "AddMemberTitle", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of Member Titles</h4>
+
+
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TitleID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TitleName)
+                            </th>
+                            <th>
+                                Admin Name
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TitleID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TitleName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditTitle", new { id = item.TitleID })
+
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

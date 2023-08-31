@@ -1,0 +1,93 @@
+﻿@model NGO_Organization.Models.tbl_AssociativeNGO
+
+@{
+    ViewBag.Title = "NGODetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Partner NGO Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">complete detail of our ngo partner    @Html.DisplayFor(model => model.NgoName) is given below</h4>
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgoName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgoName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgoEmail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgoEmail)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgoLogo)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgoLogo)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgoPhone)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgoPhone)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgoWebsite)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgoWebsite)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NgoDetails)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NgoDetails)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.tbl_Admins.AdminFirstName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_Admins.AdminFirstName)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "EditNGO", new { id = Model.NgoID }) |
+                        @Html.ActionLink("Back to List", "AssociativeNGOs")
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

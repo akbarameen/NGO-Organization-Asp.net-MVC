@@ -1,0 +1,87 @@
+﻿@model NGO_Organization.Models.tbl_Projects
+
+@{
+    ViewBag.Title = "ProjectDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+           Project Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">
+                        Complete details of the project " @Html.DisplayFor(model => model.ProjectTitle)" is given below
+                    </h4>
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                               Title
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ProjectTitle)
+                            </dd>
+
+                            <dt>
+                               Details
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ProjectDescription)
+                            </dd>
+
+                            <dt>
+                                Image path
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ProjectImage)
+                            </dd>
+
+                            <dt>
+                                Date Time
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.ProjectDateTime)
+                            </dd>
+
+                            <dt>
+                                Added By
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_Admins.AdminFirstName)
+                            </dd>
+
+                            <dt>
+                               Under the supervision 
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_TeamMembers.MemberName)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "EditProject", new { id = Model.ProjectID }) |
+                        @Html.ActionLink("Back to List", "Projects")
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

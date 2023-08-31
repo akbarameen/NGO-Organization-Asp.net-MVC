@@ -1,0 +1,226 @@
+﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Dashboard
+        </h3>
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12">
+            <div class="card card-statistics">
+                <div class="card-body">
+                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-user mr-2"></i>
+                                Registered Users
+                            </p>
+                            <h2>@ViewBag.UsersCount</h2>
+
+                        </div>
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-user mr-2"></i>
+                                Our Volunteers
+                            </p>
+                            <h2>@ViewBag.VolunteersCount</h2>
+
+                        </div>
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-user mr-2"></i>
+                                Our Members
+                            </p>
+                            <h2>@ViewBag.MembersCount</h2>
+
+                        </div>
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-handshake mr-2"></i>
+                                Our Partners
+                            </p>
+                            <h2>@ViewBag.PartnersCount</h2>
+
+                        </div>
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-award mr-2"></i>
+                                Volunteer Titles
+                            </p>
+                            <h2>@ViewBag.VolunteerTitlesCount</h2>
+
+                        </div>
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-award mr-2"></i>
+                                Member Titles
+                            </p>
+                            <h2>@ViewBag.MemberTitlesCount</h2>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12">
+            <div class="card card-statistics">
+                <div class="card-body ">
+                    <div class=" d-flex flex-column flex-md-row align-items-center ">
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fa fa-money-bill-wave mr-2"></i>
+                                Amount Recieved
+                            </p>
+                            <h2>@ViewBag.TotalAmount $</h2>
+
+                        </div>
+
+                        <div class="statistics-item">
+                            <p>
+                                <i class="icon-sm fas fa-wheelchair half mr-2"></i>
+                                Causes
+                            </p>
+                            <h2>@ViewBag.CausesCount</h2>
+
+                        </div>
+                        <div class="  statistics-item">
+                            <p>
+                                <i class="icon-sm fas fa-cloud-upload-alt mr-2"></i>
+                                Blogs
+                            </p>
+                            <h2>@ViewBag.BlogsCount</h2>
+
+                        </div>
+                        <div class=" statistics-item">
+                            <p>
+                                <i class="icon-sm fas fa-rocket mr-2"></i>
+                                Projects
+                            </p>
+                            <h2>@ViewBag.ProjectsCount</h2>
+
+                        </div>
+                        <div class=" statistics-item">
+                            <p>
+                                <i class="icon-sm fas fa-calendar mr-2"></i>
+                                Events
+                            </p>
+                            <h2>@ViewBag.EventsCount</h2>
+
+                        </div>
+                        <div class=" statistics-item">
+                            <p>
+                                <i class="icon-sm fas fa-chart-line mr-2"></i>
+                                Achivements
+                            </p>
+                            <h2>@ViewBag.AchivementsCount</h2>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <i class="fas fa-envelope"></i>
+                        Inbox(@ViewBag.ContactCount)
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                                @foreach (var item in ViewBag.ContactsList)
+                                {
+                                <tr>
+                                    <td>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input">
+                                            </label>
+                                        </div>
+                                    </td>
+                                    
+                                    <td class="font-weight-bold">
+                                        @item.ContactName
+                                    </td>
+                                    <td>
+                                        <label class="badge badge-light badge-pill">@item.ContactSubject</label>
+                                    </td>
+                                    <td>
+                                        @item.ContactMessage
+                                    </td>
+                                 
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+       
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <i class="fas fa-rocket"></i>
+                        Projects
+                    </h4>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Assigned To 
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Project Name
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.ProjectsList)
+                                {
+                                <tr >
+                                   
+                                    <td> <img src="@Url.Content(item.tbl_TeamMembers.MemberImage)"  />
+                                  
+                                   
+                                    </td>
+                                    <td>
+                                        @item.tbl_TeamMembers.MemberName
+                                       
+                                    </td>
+                                    <td>
+                                        @item.ProjectTitle
+                                    </td>
+                                    <td>  @Html.ActionLink("Details", "ProjectDetails", new { id = item.ProjectID })</td>
+                                </tr>
+                                }
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- content-wrapper ends -->

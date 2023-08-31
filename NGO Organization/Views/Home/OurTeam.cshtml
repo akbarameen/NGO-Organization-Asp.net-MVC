@@ -1,0 +1,125 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_TeamMembers>
+
+@{
+    ViewBag.Title = "OurTeam";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<style>
+    .cp-team-section.cp-section_img:before {
+        top: 0px;
+        height: initial;
+        bottom: 0;
+    }
+</style>
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>Our Team Members</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Our Team</li>s
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="cp-team-section cp-team-section_home cp-section_img pd-tb100">
+    <div class="container">
+        <div class="cp-heading-outer">
+            <span class="th-color">Awesome guys behind our charity activities </span>
+            <h1>Team Members</h1>
+            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit.</p>
+        </div>
+        <div class="owl-carousel" id="cp-team-slider">
+
+
+
+            @foreach (var item in Model)
+            {
+                <div class="item">
+                    <div class="cp-team-item">
+                        <figure class="cp-thumb">
+                            <img src="@Url.Content(item.MemberImage)" style="height: 370px; width: 100%;  " alt="">
+                            <figcaption class="cp-caption">
+                                <div class="cp-social-outer">
+                                    <ul class="cp-social-links cp-social-links_v2">
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-google-plus"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-twitter"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-linkedin"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-facebook"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-pinterest"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" target="_blank">
+                                                <i class="fa fa-youtube"
+                                                   aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </figcaption>
+                        </figure>
+                        <div class="cp-text">
+                            <h4 style="text-transform: capitalize;"><a href="#"> @Html.DisplayFor(modelItem => item.MemberName)</a></h4>
+                            <span class="th-color degination">
+                                @Html.DisplayFor(modelItem => item.tbl_TeamMemberTitles.TitleName)
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+
+
+
+
+
+        </div>
+
+    </div>
+</section>
+
+
+
+

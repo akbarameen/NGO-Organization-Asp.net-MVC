@@ -1,0 +1,86 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_contactus>
+
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Our Contacts
+        </h3>
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Recieved From Contact us</h4>
+                    @*<p class="page-description"> Click on <code>Details</code> to check further inforamtion</p>*@
+                    <div class="row">
+                        <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                            <table id="sortable-table-1" class="table">
+                                <thead>
+
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ContactName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ContactEmail)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ContactSubject)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ContactMessage)
+                                        </th>
+                                        @*<th>
+                                            @Html.DisplayNameFor(model => model.tbl_Users.UserFirstName)
+                                        </th>*@
+                                        <th></th>
+                                    </tr>
+
+
+
+
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ContactName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ContactEmail)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ContactSubject)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.ContactMessage)
+                                            </td>
+                                            @*<td>
+                                                @Html.DisplayFor(modelItem => item.tbl_Users.UserFirstName)
+                                            </td>*@
+                                            <td>
+                                        
+                                                @Html.ActionLink("Details", "ContactDetails", new { id = item.ContactID }) 
+                                         
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- content-wrapper ends -->

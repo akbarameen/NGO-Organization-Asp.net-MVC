@@ -1,0 +1,81 @@
+﻿@model NGO_Organization.Models.tbl_TeamMembers
+
+@{
+    ViewBag.Title = "Member Details";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Member Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Detail information of Team member</h4>
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                ID
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MemberID)
+                            </dd>
+                            <dt>
+                                Name
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MemberName)
+                            </dd>
+
+                            <dt>
+                                Image Path
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MemberImage)
+                            </dd>
+
+                            <dt>
+                                Description
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MemberDescription)
+                            </dd>
+
+                            <dt>
+                                Added By Admin
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_Admins.AdminFirstName)
+                            </dd>
+
+                            <dt>
+                                Title
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_TeamMemberTitles.TitleName)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "EditTeamMember", new { id = Model.MemberID }) |
+                        @Html.ActionLink("Back to List", "TeamMembersList")
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

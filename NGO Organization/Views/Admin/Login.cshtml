@@ -1,0 +1,136 @@
+﻿@model  NGO_Organization.Models.tbl_Admins
+@{
+    Layout = null;
+    ViewBag.Title = "Login";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title | Admin </title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/Content/vendors/iconfonts/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="~/Content/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/Content/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="~/Content/images/favicon.png" />
+    <style>
+
+        .login-btn {
+            transition: 0.3s all ease-in !important;
+            padding: 10px 30px !important;
+        }
+
+            .login-btn:hover {
+                background-color: gray !important;
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <div class="container-fluid page-body-wrapper full-page-wrapper">
+            <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+                <div class="row flex-grow">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <div class="auth-form-transparent text-left p-3">
+                            <div class="brand-logo mt-5">
+                                <img src="~/Content/images/ngo-logo.png" style="width: 200px; " alt="logo">
+                            </div>
+                            <h4>Welcome back!</h4>
+                            <h6 class="font-weight-light">Happy to see you again!</h6>
+
+                            <div class="py-3">
+
+                                @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+                                {
+                                    <div class="form-group">
+
+                                        @Html.LabelFor(model => model.AdminUsername)
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-transparent">
+                                                <span class="input-group-text bg-transparent border-right-0">
+                                                    <i class="fa fa-user text-primary"></i>
+                                                </span>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.AdminUsername, new { @class = "form-control form-control-lg border-left-0", @Value = ViewBag.Username, @Placeholder = "Username" })
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.AdminUsername, "", new { @class = "text-danger", @style = " font-size: 13px;  font-weight: 600;" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.AdminPassword)
+                                        <div class="input-group">
+                                            <div class="input-group-prepend bg-transparent">
+                                                <span class="input-group-text bg-transparent border-right-0">
+                                                    <i class="fa fa-lock text-primary"></i>
+                                                </span>
+                                            </div>
+                                            @Html.PasswordFor(model => model.AdminPassword, new { @class = "form-control form-control-file form-control-lg border-left-0", @Value = ViewBag.Password, @Placeholder = "Password" })
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.AdminPassword, "", new { @class = "text-danger", @style = " font-size: 13px; font-weight: 600;" })
+                                        <div class="text-danger " style=" font-size: 13px; font-weight: 600;">@ViewBag.ErrorMessage </div>
+                                    </div>
+                                    <div class="my-2 d-flex justify-content-between align-items-center">
+
+                                        <div class="form-check-label text-muted mx-4">
+                                            @Html.CheckBoxFor(model => model.RememberMe, new { @class = "form-check-input ", id = "rememberMe" })
+                                            <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
+
+                                        </div>
+
+                                      
+                                    </div>
+                                    <div class="my-3">
+
+                                        <input type="submit" value="LOGIN" class="btn btn-block btn-lg auth-form-btn login-btn" style="background-color: deepskyblue; color: white; font-weight:600;" name="Login" />
+
+                                    </div>
+
+                                   
+                              
+
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 login-half-bg d-flex flex-row ">
+
+                        <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2022  All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="~/Content/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/Content/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="~/Content/js/off-canvas.js"></script>
+    <script src="~/Content/js/hoverable-collapse.js"></script>
+    <script src="~/Content/js/misc.js"></script>
+    <script src="~/Content/js/settings.js"></script>
+    <script src="~/Content/js/todolist.js"></script>
+    <!-- endinject -->
+</body>
+
+
+<!-- Mirrored from www.urbanui.com/melody/template/pages/samples/login-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 15 Sep 2018 06:08:53 GMT -->
+</html>

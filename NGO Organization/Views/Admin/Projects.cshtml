@@ -1,0 +1,97 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Projects>
+
+@{
+    ViewBag.Title = "Projects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@Html.Raw(TempData["AddProjectMessage"])
+@Html.Raw(TempData["EditProjectMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Recent Projects
+        </h3>
+        <p>
+            @Html.ActionLink("+ Add New Project", "AddProject", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of our recent Projects</h4>
+                    <p class="page-description"> Click on <code>Details</code> to check More inforamtion like Descriptions etc</p>
+                    <div class="row">
+                        <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Date and time
+                                    </th>
+                                    <th>
+                                        Supervisor
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.ProjectImage)
+                                    </th>
+                                    <th>Action</th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProjectTitle)
+                                </td>
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProjectDateTime)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tbl_TeamMembers.MemberName)
+                                </td>
+                                <td>
+                                    @{
+                                        if (item.ProjectStatus == 1)
+                                        {
+                                            <span class="badge badge-outline-success badge-pill">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-outline-danger badge-pill">Deactive</span>
+                                        }
+                                    }
+                                </td>
+                                <td>
+                                    <img src="@Url.Content(item.ProjectImage)" style="height: 60px; width: 60px; border-radius: 0px;" />
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditProject", new { id = item.ProjectID }) |
+                                    @Html.ActionLink("Details", "ProjectDetails", new { id = item.ProjectID }) 
+                                   
+                                </td>
+                            </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

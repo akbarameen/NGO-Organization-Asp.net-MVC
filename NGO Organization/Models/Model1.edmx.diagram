@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55cd94c41b1944b7a447da4bed17efc3" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="dbNGOModel.tbl_aboutus" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Achivements" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Admins" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_AskQuesions" Width="1.5" PointX="8" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_AssociativeNGO" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Blogs" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_contactus" Width="1.5" PointX="8" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_DonationCauses" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Donations" Width="1.5" PointX="5.25" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Events" Width="1.5" PointX="3" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Gallaries" Width="1.5" PointX="3" PointY="25.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_invitation" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Projects" Width="1.5" PointX="6" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_TeamMembers" Width="1.5" PointX="5.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_TeamMemberTitles" Width="1.5" PointX="5.375" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Users" Width="1.5" PointX="5.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_Volunteers" Width="1.5" PointX="13" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbNGOModel.tbl_VolunteerTypes" Width="1.5" PointX="10.75" PointY="1.25" IsExpanded="true" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_about__Admin__756D6ECB" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Achiv__Admin__1AD3FDA4" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Assoc__Admin__0A688BB1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Blogs__Admin__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Donat__Admin__245D67DE" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Event__Admin__4F47C5E3" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Galla__Admin__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Proje__Admin__607251E5" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_TeamM__Admin__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_TeamM__Admin__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_AskQu__UserI__634EBE90" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_conta__UserI__58D1301D" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Donat__Cause__3F115E1A" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_invit__UserI__7849DB76" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Proje__Membe__5F7E2DAC" ManuallyRouted="false" />
+        <AssociationConnector Association="dbNGOModel.FK__tbl_TeamM__Title__05D8E0BE" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="dbNGOModel.FK__tbl_Volun__Volun__0C85DE4D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

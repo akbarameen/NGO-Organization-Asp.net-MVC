@@ -1,0 +1,40 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_DonationCauses>
+
+@{
+    ViewBag.Title = "CausesList";
+}
+@Html.Raw(TempData["AddCauseMessage"])
+@Html.Raw(TempData["EditCauseMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Causes 
+        </h3>
+
+        <p>
+            @Html.ActionLink("+ Add Cause", "AddCause", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+    </div>
+    <p class="page-description"> Click on <code>Details</code> to check More inforamtion like Descriptions etc</p>
+    <div class="card-columns">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="card">
+                <img class="card-img-top" src="@Url.Content(item.CauseImage)" style=" height: 200px; width: 100%;" />
+
+                <div class="card-body">
+                    <h4 class="card-title"> @Html.DisplayFor(modelItem => item.CauseName)</h4>
+                    <p style="font-weight: 500;">Posted By : <span style="font-weight: 600;  text-transform: uppercase"> @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)</span></p>
+                  
+                    @Html.ActionLink("Edit", "EditCause", new { id = item.CauseID }) |
+                    @Html.ActionLink("Details", "CauseDetails", new { id = item.CauseID }) 
+                  
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_AssociativeNGO>
+
+@{
+    ViewBag.Title = "Associative NGOs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Raw(TempData["AddNgoMessage"])
+@Html.Raw(TempData["EditNGOMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Our Partners
+        </h3>
+        <p>
+            @Html.ActionLink("+ Add New NGO", "AddNGO", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of our NGO partners</h4>
+                    <p class="page-description"> Click on <code>Details</code> to check More inforamtion like Descriptions etc</p>
+                    <div class="row">
+                        <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Email
+                                    </th>
+
+                                    <th>
+                                        Contact
+                                    </th>
+                                    <th>
+                                        Website
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Logo
+                                    </th>
+
+                                    <th>Action</th>
+                                </tr>
+
+                                @foreach (var item in Model)
+                                {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgoID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgoName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgoEmail)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgoPhone)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgoWebsite)
+                                </td>
+                                <td>
+                                    @{
+                                        if (item.NGOStatus == 1)
+                                        {
+                                            <span class="badge badge-outline-success badge-pill">Active</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge badge-outline-danger badge-pill">Deactive</span>
+                                        }
+                                    }
+                                </td>
+
+                                <td>
+                                    <img src="@Url.Content(item.NgoLogo)" style="height: 60px; width: 60px; border-radius: 0px;" />
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "EditNGO", new { id = item.NgoID }) |
+                                    @Html.ActionLink("Details", "NGODetails", new { id = item.NgoID }) 
+                              
+                                </td>
+                            </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,72 @@
+﻿@model NGO_Organization.Models.tbl_Gallaries
+
+@{
+    ViewBag.Title = "AddGalleryImage";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Add Image
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Add an image with a specific title below</h4>
+
+                    @using (Html.BeginForm("AddGalleryImage", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GallaryTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.GallaryTitle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.GallaryTitle, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdminID, "AdminID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.AdminID, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.DropDownList("AdminID", null, htmlAttributes: new { @class = "form-control" })*@
+                            @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.GallaryImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-12">
+                            <input type="file" name="GalleryImgFile" style="margin-top: 5px" value="" required />
+                            <div class="text-danger"> @ViewBag.SizeErrorMessage</div>
+                            <div class="text-danger"> @ViewBag.ExtensionErrorMessage</div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.ImageStatus, new { htmlAttributes = new { @class = "form-control", @Value = 1, @readonly = "Readonly", } })
+                    
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Add Image" class="btn btn-inverse-primary" />
+                        </div>
+                    </div>
+                </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "GalleryImagesList")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

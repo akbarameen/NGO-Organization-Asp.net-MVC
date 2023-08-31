@@ -1,0 +1,403 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> NGO Organization | @ViewBag.Title  </title>
+    <link href="~/Content/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="~/Content/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/fancybox.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/owl.carousel.css" rel="stylesheet">
+    <link href="~/Content/assets/css/animate.css" rel="stylesheet">
+    <link href="~/Content/assets/css/fast-select.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/style.css" rel="stylesheet">
+    <link href="~/Content/assets/css/responsive.css" rel="stylesheet">
+    <link href="~/Content/assets/css/theme-color.css" rel="stylesheet" title="color">
+    <link href="~/Content/assets/css/theme-color_v2.css" rel="alternate stylesheet" title="color2">
+    <link href="~/Content/assets/css/theme-color_v3.css" rel="alternate stylesheet" title="color3">
+    <link href="~/Content/assets/css/theme-color_v4.css" rel="alternate stylesheet" title="color4">
+    <link href="~/Content/assets/css/theme-color_v5.css" rel="alternate stylesheet" title="color5">
+    <link rel="stylesheet" href="~/Content/assets/css/revolution/settings.css">
+    <link rel="stylesheet" href="~/Content/assets/css/revolution/layers.css">
+    <link rel="stylesheet" href="~/Content/assets/css/revolution/navigation.css">
+
+
+
+</head>
+
+<body>
+    <div class="cp-wrapper">
+        <header class="style1">
+            <div class="topbar">
+                <div class="container">
+                    <ul class="top-info">
+                        <li><i class="fa fa-map-marker th-color"></i> Metro Star Gate , Karachi. </li>
+                    </ul>
+                    @{
+
+                        if (Session["User"] != null)
+                        {
+                            <div class="top-links">
+                                <a href="@Url.Action("Logout", "Home")" title="" >Logout<i class="fa fa-sign-in th-color"  style="margin-left: 10px"></i> </a>
+                            </div>
+                            <div style="text-transform: uppercase; color: white; letter-spacing: 2px;" class="social-btns1">
+                                <span style="cursor: pointer;"> <i class="fa fa-user th-color" style="margin-right: 10px"></i> @Session["User"]</span>
+
+                            </div>
+
+                        }
+
+                        else
+                        {
+                            <div class="top-links">
+                                <a href="@Url.Action("LoginUser", "Home")" title=""><i class="fa fa-sign-in th-color"></i> Login</a>
+                                <a href="@Url.Action("Signup", "Home")" title=""><i class="fa fa-user th-color"></i> Sign Up</a>
+                            </div>
+                        }
+                    }
+                    <div class="social-btns1">
+                        <span>FOLLOW US</span>
+                        <a href="#" title="Google Plus" data-toggle="tooltip" data-placement="bottom" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                        <a href="#" title="Twitter" data-toggle="tooltip" data-placement="bottom" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" title="Linkedin" data-toggle="tooltip" data-placement="bottom" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a href="#" title="Facebook" data-toggle="tooltip" data-placement="bottom" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                        </div>
+            <div class="menu-wrapper">
+                <div class="container">
+                    <div class="menu-inner">
+                        <div class="logo">
+                            <a href="index.html" title="Logo">
+                                <img src="~/Content/images/NGO-Logo.png" width="150" alt="logo.png">
+                            </a>
+                        </div>
+                        <nav>
+                            <div class="">
+                                <ul>
+                                    <li class="active"><a href="@Url.Action("Index", "Home") " title="">HOME</a></li>
+
+                                    <li><a href=" @Url.Action("Blogs", "Home") " title="">BLOGS</a></li>
+
+
+                                    <li><a href=" @Url.Action("Events", "Home") " title="">EVENTS</a></li>
+
+
+
+                                    <li><a href=" @Url.Action("Causes", "Home") " title="">CAUSES</a></li>
+
+                                    <li class="menu-item-has-children">
+                                        <a href="#" title="">ABOUT </a>
+                                        <ul>
+                                            <li><a href="@Url.Action("OurTeam", "Home") " title="">Our Team</a></li>
+                                            <li><a href="@Url.Action("Achivements", "Home")" title="">Our Achivements</a></li>
+                                            <li><a href="@Url.Action("Projects", "Home") " title="">Our Projects</a></li>
+                                            <li><a href="@Url.Action("Volunteers", "Home") " title="">Become Supporter</a></li>
+                                            <li><a href="@Url.Action("Aboutus", "Home") " title="">More About us</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href=" @Url.Action("GalleryImages", "Home") " title="">GALLERY</a></li>
+                                    <li><a href=" @Url.Action("contactus", "Home") " title="">CONTACT US</a></li>
+                                </ul>
+                                <div class="header-search">
+                                    <a href="#" title=""><i class="fa fa-search"></i></a>
+                                    <form>
+                                        <input type="text" placeholder="Search Here.....">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                                <a href="@Url.Action("Donate", "Home")" title="" class="header-donate">
+                                    <i class="fa fa-money"></i> DONATE
+                                </a>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="res-header">
+            <div class="res-header-top">
+                <div class="res-top-links">
+                    <a href="#" title=""><i class="fa fa-shopping-basket theme-clr"></i> Shop</a>
+                    <a href="#" title=""><i class="fa fa-sign-in theme-clr"></i> Login</a>
+                    <a href="#" title=""><i class="fa fa-user theme-clr"></i> Sign Up</a>
+                </div>
+                <div class="res-top-links2">
+                    <a href="@Url.Action("Donate", "Home")" title="">Donate Now</a>
+                    <a href="@Url.Action("Events", "Home")" title="">Upcoming Events</a>
+                </div>
+            </div>
+            <div class="res-logo-sec">
+                <div class="logo">
+                    <a href="index.html" title="">
+                        <img src="~/Content/images/NGO-Logo.png"
+                            width="200" alt="">
+                    </a>
+                </div>
+                <span class="res-menu-btn"><i class="fa fa-align-justify"></i></span>
+            </div>
+            <div class="res-menu">
+                <span class="res-menu-close"><i class="fa fa-close"></i></span>
+                <ul>
+                    <li><a href="@Url.Action("Index", "Home") " title="">HOME</a></li>
+                    <li><a href=" @Url.Action("Blogs", "Home") " title="">BLOGS</a></li>
+                    <li><a href=" @Url.Action("Events", "Home") " title="">EVENTS</a></li>
+                    <li><a href=" @Url.Action("Causes", "Home") " title="">CAUSES</a></li>
+                    <li class="menu-item-has-children">
+                        <a href="#" title="">About +</a>
+                        <ul>
+                            <li><a href="@Url.Action("Team", "Home") " title="">Our Team</a></li>
+                            <li><a href="@Url.Action("Achivements", "Home")" title="">Our Achivements</a></li>
+                            @*<li><a href="@Url.Action("Volunteers", "Home") " title="">Our volunteeers</a></li>*@
+                            <li><a href="@Url.Action("Projects", "Home") " title="">Our Projects</a></li>
+                            <li><a href="@Url.Action("Aboutus", "Home") " title="">More About us</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href=" @Url.Action("GalleryImages", "Home") " title="">GALLERY</a></li>
+                    <li><a href=" @Url.Action("contactus", "Home") " title="">CONTACT US</a></li>
+
+                   
+                    
+                </ul>
+            </div>
+        </div>
+
+        @RenderBody()
+
+
+        <footer class="cp-footer">
+            <section class="ft-widget-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-about">
+                                <h4>Winning <span class="th-color">Awards</span></h4>
+                                <p>
+                                    In the wake of Giving Tuesday (November 29), the nonprofit charity evaluator has
+                                    released its 2018 ranking of the <span class="th-color">top charities</span> in the
+                                    world.
+                                </p>
+                                <strong class="signature-img">
+                                    <img src="~/Content/assets/images/signature-img-01.png" alt="">
+                                </strong>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-services">
+                                <h4>We Are <span class="th-color">Doing</span></h4>
+                                <ul class="widget-listed">
+                                    <li>
+                                        <a href="@Url.Action("Projects", "Home") ">Working on projects</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="@Url.Action("Causes", "Home") ">Affective Causes</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Events", "Home") ">Organize Charity Events</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Donate", "Home") "> Fundraising</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("contactus", "Home") ">Contact us</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Aboutus", "Home") ">About us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-tweets">
+                                <h4>Latest <span class="th-color">Tweets</span></h4>
+                                <div id="cp-tweets-slider" class="owl-carousel">
+                                    <div class="tweets-item">
+                                        <div class="top">
+                                            <p>
+                                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                                impedit quo <a href="https://twitter.com/crunchpress">https://twitter.com/crunchpress</a>
+                                            </p>
+                                        </div>
+                                        <div class="bottom-holder">
+                                            <span class="icon-box">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </span>
+                                            <div class="cp-text">
+                                                <span class="th-color">Kevin.Richard</span>
+                                                <p>17 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tweets-item">
+                                        <div class="top">
+                                            <p>
+                                                Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                                impedit quo <a href="https://twitter.com/crunchpress">https://twitter.com/crunchpress</a>
+                                            </p>
+                                        </div>
+                                        <div class="bottom-holder">
+                                            <span class="icon-box">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+                                            </span>
+                                            <div class="cp-text">
+                                                <span class="th-color">Deward.Richard</span>
+                                                <p>10 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="widget widget-contact">
+                                <h4>Stay In <span class="th-color">Touch</span></h4>
+                                <ul class="contact-info-listed">
+                                    <li>
+                                        <span class="icon-box">
+                                            <i class="fa fa-home" aria-hidden="true"></i>
+                                        </span>
+                                        <p>Metro Star gate Karachi</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon-box">
+                                            <i class="fa fa-phone-square" aria-hidden="true"></i>
+                                        </span>
+                                        <a href="tel:+4412345678">+92-302-3322161</a>
+                                    </li>
+                                    <li>
+                                        <span class="icon-box">
+                                            <i class="fa fa-skype" aria-hidden="true"></i>
+                                        </span>
+                                        <a href="../index.html">
+                                            <span class="__cf_email__"
+                                                  data-cfemail="d7a3bfb2f9b9b2b2b3a497a4bcaea7b2f9b4b8ba">[email&#160;protected]</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="icon-box">
+                                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                        </span>
+                                        <a href="../cdn-cgi/l/email-protection.html#a0c3cfced4c1c3d4e0d4c8c5cec5c5c4d38ec3cfcd">
+                                            <span class="__cf_email__"
+                                                  data-cfemail="0f6c60617b6e6c7b4f7b676a616a6a6b7c216c6062">[email&#160;protected]</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <span class="icon-box">
+                                            <i class="fa fa-globe" aria-hidden="true"></i>
+                                     
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="cp-instagram-section">
+                <div class="container">
+                    <h3>Follow Us On <span class="th-color">Instagram</span></h3>
+                    <ul class="cp-instagram-listed">
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-01.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-02.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-03.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-04.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-05.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-06.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-07.jpg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="~/Content/assets/images/resources/instagram-img-08.jpg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        
+        </footer>
+        <div class="side-panel">
+            <span><i class="fa fa-cog fa-spin"></i></span>
+            <h6>Falah</h6>
+            <div class="color-picker">
+                <strong>Choose Color</strong>
+                <a class="color applied" onclick="setActiveStyleSheet('color'); return false;"></a>
+                <a class="color2" onclick="setActiveStyleSheet('color2'); return false;"></a>
+                <a class="color3" onclick="setActiveStyleSheet('color3'); return false;"></a>
+                <a class="color4" onclick="setActiveStyleSheet('color4'); return false;"></a>
+                <a class="color5" onclick="setActiveStyleSheet('color5'); return false;"></a>
+            </div>
+        </div>
+    </div>
+    <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/Content/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/jquery-migrate-1.4.1.min.js"></script>
+    <script src="~/Content/assets/js/owl.carousel.min.js"></script>
+    <script src="~/Content/assets/js/jquery.countdown-plugin.js"></script>
+    <script src="~/Content/assets/js/jquery.countdown.js"></script>
+    <script src="~/Content/assets/js/fast-select.min.js"></script>
+    <script src="~/Content/assets/js/fancybox.min.js"></script>
+    <script src="~/Content/assets/js/styleswitcher.js"></script>
+    <script src="~/Content/assets/js/perfect-scrollbar.min.js"></script>
+    <script src="~/Content/assets/js/custom.js"></script>
+    <script src="~/Content/assets/js/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="~/Content/assets/js/revolution/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/Content/assets/js/revolution/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/Content/assets/js/revolution/revolution-init.js"></script>
+</body>
+
+</html>
+
+
+
+
+

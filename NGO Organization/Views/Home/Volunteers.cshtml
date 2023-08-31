@@ -1,0 +1,110 @@
+﻿@model NGO_Organization.Models.tbl_Volunteers
+
+@{
+    ViewBag.Title = "Volunteers";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+<style>
+    .inner-holder .fstElement .fstToggleBtn {
+        font-size: 13px;
+        float: left;
+        width: 100%;
+        color: #777;
+        height: 50px;
+        line-height: 50px;
+        padding: 5px 30px;
+        margin-bottom: 10px;
+        border: none;
+        background-color: #fff;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .textarea {
+        font-size: 13px;
+        float: left;
+        width: 100%;
+        color: #777;
+        height: 100px;
+        line-height: 56px;
+        padding: 0 30px;
+        margin-bottom: 10px;
+        border: none;
+        background-color: #fff;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>Become Our supporter</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index", "Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Supporter</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="cp-main-content ">
+    <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12 mx-auto mt-5 ">
+        <div class="cp-join-form-outer mb-5">
+            @if (ViewBag.Joined != null)
+            {
+                <div class="alert alert-success">@ViewBag.signup</div>
+            }
+            <h2>Become A Volunteer</h2>
+            <p>
+                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
+                molestiae
+            </p>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+
+                <div class="cp-form-holder">
+                    <div class="inner-holder mt-3">
+                        @Html.EditorFor(model => model.VolunteerName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Full Name" } })
+                        @Html.ValidationMessageFor(model => model.VolunteerName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="inner-holder mt-3 ">
+                        @Html.TextAreaFor(model => model.VolunteerReason, new { cols = 35, @rows = 6, @class = "textarea", @Placeholder = "Why you want to become a volunteer" })
+                        @Html.ValidationMessageFor(model => model.VolunteerReason, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="inner-holder mt-3">
+                        @Html.EditorFor(model => model.VolunteerEmail, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.VolunteerEmail, "", new { @class = "text-danger " })
+                    </div>
+                    <div class="inner-holder mt-3 ">
+                        @Html.DropDownListFor(model => model.VolunteerTypeID, ViewBag.VolunteersType as SelectList, "Select type ", new { @class = "form-control " @*, required = (string)null*@ })
+                        @Html.ValidationMessageFor(model => model.VolunteerTypeID, "", new { @class = "text-danger" })
+
+                    </div>
+
+                    <div class="inner-holder">
+                        <button class="btn-submit cp-btn-style_v2 mt-4" type="submit">
+                            Join us Now
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

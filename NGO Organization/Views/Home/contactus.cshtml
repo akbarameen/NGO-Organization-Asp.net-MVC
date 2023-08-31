@@ -1,0 +1,84 @@
+﻿@model NGO_Organization.Models.tbl_contactus
+
+@{
+    ViewBag.Title = "contactus";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+
+
+
+
+
+<section class="cp-inner-banner-section">
+    <div class="container">
+        <div class="cp-breadcrumb-outer">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div class="cp-inner-banner-info">
+                        <h1>CONTACT US</h1>
+                        <p>It is a long established fact that a reader will be distracted.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="@Url.Action("Index","Home")">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">Contact us</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="cp-main-content">
+
+
+    <div class="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <p style="font-size: 26px; font-weight: 600; color: #00a3e4;">Get In Touch</p>
+                <h2 style=" font-weight: 600; text-transform: uppercase;">Contact for any query</h2>
+            </div>
+            <div class="contact-img">
+                <img src="~/Content/assets/images/resources/contact.jpg" alt="Image">
+            </div>
+            <div class="contact-form">
+                <div id="success"></div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <div class="control-group mb-3">
+                            @Html.EditorFor(model => model.ContactName, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Full Name" } })
+                            @Html.ValidationMessageFor(model => model.ContactName, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-group mb-3">
+                            @Html.EditorFor(model => model.ContactEmail, new { htmlAttributes = new { @class = "form-control" , @Placeholder = "Your Email" } })
+                            @Html.ValidationMessageFor(model => model.ContactEmail, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-group mb-3">
+                            @Html.EditorFor(model => model.ContactSubject, new { htmlAttributes = new { @class = "form-control", @Placeholder = "Subject" } })
+                            @Html.ValidationMessageFor(model => model.ContactSubject, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="control-group inner-holder mb-3">
+                            @Html.TextAreaFor(model => model.ContactMessage, new { cols = 35, @rows = 6, @class = "form-control", @Placeholder = "Message" })
+                   
+                            @Html.ValidationMessageFor(model => model.ContactMessage, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div>
+                            <button class="cp-btn-style btn-submit" style="width: 100%;" type="submit" id="sendMessageButton">
+                                Send
+                                Message
+                            </button>
+                        </div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

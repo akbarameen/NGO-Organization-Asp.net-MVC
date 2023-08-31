@@ -1,0 +1,88 @@
+﻿@model NGO_Organization.Models.tbl_TeamMembers
+
+@{
+    ViewBag.Title = "Edit Member";
+}
+@Html.Raw(TempData["EditMemberMessage"])
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Edit Team Member
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Change Member Informations if you want</h4>
+
+                 
+
+                    @using (Html.BeginForm("EditTeamMember", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            <hr />
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.MemberID)
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MemberName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.MemberName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.MemberName, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MemberDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.TextAreaFor(model => model.MemberDescription, new { cols = 35, @rows = 6, @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MemberDescription, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.TitleID, "TitleID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.TitleID, new { htmlAttributes = new { @class = "form-control" } })
+                                    @*@Html.DropDownList("TitleID", null, htmlAttributes: new { @class = "form-control" })*@
+                                    @Html.ValidationMessageFor(model => model.TitleID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.AdminID, "AdminID", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.EditorFor(model => model.AdminID, new { htmlAttributes = new { @class = "form-control" } })
+                                    @*@Html.DropDownList("AdminID", null, htmlAttributes: new { @class = "form-control" })*@
+                                    @Html.ValidationMessageFor(model => model.AdminID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.MemberImage, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    <input type="file" name="MemberImgFile" style="margin-top: 5px" value="" required />
+                                    <div class="text-danger"> @ViewBag.SizeErrorMessage</div>
+                                    <div class="text-danger"> @ViewBag.ExtensionErrorMessage</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-12">
+                                    <input type="submit" value="Save Changes" class="btn btn-inverse-warning" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to Members List", "TeamMembersList")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

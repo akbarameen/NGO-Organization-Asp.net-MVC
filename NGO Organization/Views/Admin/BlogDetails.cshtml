@@ -1,0 +1,84 @@
+﻿@model NGO_Organization.Models.tbl_Blogs
+
+@{
+    ViewBag.Title = "Blog Details";
+}
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Blog Details
+        </h3>
+
+    </div>
+    <div class="row grid-margin">
+        <div class="col-12 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title ml-2">Details of the title  "@Html.DisplayFor(model => model.BlogTitle)"  Are listed below </h4>
+
+                    <div>
+
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                ID
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BlogID)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.BlogTitle)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BlogTitle)
+                            </dd>
+
+                            <dt>
+                                Image
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BlogImage)
+                            </dd>
+
+                            <dt>
+                                Description
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BlogDescription)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.BlogDateTime)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.BlogDateTime)
+                            </dd>
+
+                            <dt>
+                                Posted By:
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.tbl_Admins.AdminFirstName)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Editblog", new { id = Model.BlogID }) |
+                        @Html.ActionLink("Back to Blogs", "Blogs")
+                    </p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

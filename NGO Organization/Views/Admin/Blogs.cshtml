@@ -1,0 +1,100 @@
+﻿@model IEnumerable<NGO_Organization.Models.tbl_Blogs>
+
+@{
+    ViewBag.Title = "Blogs";
+}
+
+@Html.Raw(TempData["AddBlogMessage"])
+@Html.Raw(TempData["EditBlogMessage"])
+
+<div class="content-wrapper">
+    <div class="page-header">
+        <h3 class="page-title">
+            Blogs
+        </h3>
+        <p>
+            @Html.ActionLink("+ Add New Blog", "AddBLog", "Admin", new { @class = "btn btn-primary ml-3" })
+        </p>
+
+    </div>
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">List of our Posted Blogs</h4>
+                    <p class="page-description"> Click on <code>Details</code> to check More inforamtion like Descriptions etc</p>
+                    <div class="row">
+                        <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                            <table id="sortable-table-1" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Title
+                                        </th>
+                                        <th>
+                                            Date/Time
+                                        </th>
+                                        <th>
+                                            Posted by
+                                        </th>
+                                        <th>
+                                            Status
+                                        </th>
+                                        <th>
+                                            Image
+                                        </th>
+
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BlogTitle)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BlogDateTime)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.tbl_Admins.AdminFirstName)
+                                        </td>
+                                        <td>
+                                            @{
+                                                if (item.BlogStatus == 1)
+                                                {
+                                                    <span class="badge badge-outline-success badge-pill">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge badge-outline-danger badge-pill">Deactive</span>
+                                                }
+                                            }
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content(item.BlogImage)" style="height: 60px; width: 60px; border-radius: 0px;" />
+                                        </td>
+
+                                        <td>
+
+                                            @Html.ActionLink("Edit", "EditBlog", new { id = item.BlogID }, htmlAttributes: new { style = "font-weight: bold; color: gray; font-size: 12px; text-decoration: none;" }) |
+                                            @Html.ActionLink("Details", "BlogDetails", new { id = item.BlogID }, htmlAttributes: new { style = "font-weight: bold; color: gray; font-size: 12px; text-decoration: none;" }) 
+                                          
+                                        </td>
+                                    </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
